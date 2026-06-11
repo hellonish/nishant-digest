@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant's Daily Digest — June 12, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base/styles.css">
+    <script>
+    MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+        svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        .toc-toggle { display: none; }
+        @media (max-width: 900px) {
+            .toc-toggle {
+                display: inline-block;
+                background: var(--bg-meta);
+                border: 1px solid var(--border);
+                color: var(--text-primary);
+                padding: 8px 16px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 0.85rem;
+                margin-bottom: 16px;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-home-link"><span class="nav-title">Nishant's Digest</span></a>
+        <span class="nav-date">June 12, 2026 · Day 6</span>
+        <button class="hamburger" onclick="document.querySelector('.toc-sidebar').classList.toggle('toc-open')" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+    <!-- TOC Sidebar -->
+    <aside class="toc-sidebar" id="tocSidebar">
+        <div class="toc-header">On this page</div>
+        <ul class="toc-list">
+            <li><a href="#industry">Industry News</a></li>
+            <li><a href="#startups">Startup Signals</a></li>
+            <li><a href="#research">Research Review</a></li>
+            <li><a href="#math">Math &amp; Physics</a></li>
+            <li><a href="#ml">ML/AI Deep Dive</a></li>
+            <li><a href="#topic">AI Safety &amp; Alignment</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="digest-content">
+
+        <!-- Digest Meta Header -->
+        <div class="digest-meta">
+            <h1>Daily Research Digest</h1>
+            <div class="meta-stats">
+                <span>&#128197; June 12, 2026</span>
+                <span>&#128221; ~3,600 words</span>
+                <span>&#9201; ~18 min read</span>
+                <span>&#127919; Day 6</span>
+            </div>
+            <div class="topic-teaser">&#9654; Today's topic: AI Safety &amp; Alignment</div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: Industry News -->
+        <!-- ============================================================ -->
+        <section class="section-card section-blue" id="industry">
+            <div class="section-header">
+                <h2 class="section-title">Industry News &mdash; FAANG &amp; AI Labs</h2>
+                <span class="reading-time">4 min</span>
+            </div>
+            <div class="section-body">
+
+                <p><strong>Anthropic Releases Claude Fable 5 &amp; Mythos 5</strong> <a class="source-link" href="https://anthropic.com/news/claude-fable-5-mythos-5" target="_blank">[source]</a></p>
+                <p>On June 9, Anthropic launched Claude Fable 5, the first Mythos-class model available to the general public, alongside the restricted Claude Mythos 5 for cyber defenders and scientists. Fable 5 claims the <strong>#1 spot on the Artificial Analysis Intelligence Index</strong> (score 64.9), about 5 points ahead of the nearest competitor. On SWE-Bench Pro (agentic coding), it scored <strong>80.3%</strong> &mdash; a massive jump from Opus 4.8 (69.2%) and GPT-5.5 (58.6%). Stripe used Fable 5 to migrate a 50-million-line Ruby codebase in a single day. The model features a novel safety fallback architecture: classifiers monitor for cybersecurity, biology/chemistry, and model distillation requests, gracefully falling back to Opus 4.8 when triggered in fewer than 5% of sessions. Mythos 5 scored 78.0% on ExploitBench, nearly double Opus 4.8's 40.0%.</p>
+
+                <p><strong>Apple Unveils Next-Gen Apple Intelligence &amp; Siri AI at WWDC 2026</strong> <a class="source-link" href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/" target="_blank">[source]</a></p>
+                <p>At WWDC 2026 (June 8), Apple introduced third-generation on-device foundation models and a rebuilt Siri AI with three breakthrough capabilities: personal context understanding across messages, emails, photos, and calendar; on-screen awareness answering questions about current display content; and broad world knowledge with systemwide app actions. A dedicated Siri app lets users revisit past conversations with iCloud-synced history. Apple also announced Image Playground for photorealistic image generation from descriptions. The new foundation models run on-device for privacy with optional server-side compute.</p>
+
+                <p><strong>Google DeepMind Releases DiffusionGemma</strong> <a class="source-link" href="https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost/" target="_blank">[source]</a></p>
+                <p>Google DeepMind released DiffusionGemma, an open Apache 2.0 model using a diffusion process for text generation. Instead of predicting one token at a time, the model denoises an entire block of up to 256 tokens in parallel, shifting the bottleneck from memory bandwidth to compute. With 26B total parameters (3.8B activated) via Mixture-of-Experts, it runs on about 18GB GPU memory, achieving approximately 700 tokens/sec on an RTX 5090 and over 1,000 tokens/sec on an H100 &mdash; about 4x faster than similarly sized autoregressive Gemma models.</p>
+
+                <p><strong>OpenAI Files Confidentially for IPO</strong> <a class="source-link" href="https://www.bloomberg.com/news/articles/2026-06-08/openai-filed-confidentially-for-ipo-as-rivals-race-to-market" target="_blank">[source]</a></p>
+                <p>OpenAI confidentially submitted a draft S-1 registration statement to the SEC, joining Anthropic (which also filed this week) in a historic AI IPO pipeline now estimated at $3.6 trillion. The filing follows OpenAI's recent $4 billion joint venture with The Deployment Company, marking a major shift from private research lab to public company.</p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: Startup Signals -->
+        <!-- ============================================================ -->
+        <section class="section-card section-purple" id="startups">
+            <div class="section-header">
+                <h2 class="section-title">Startup Signals &mdash; YC &amp; a16z</h2>
+                <span class="reading-time">4 min</span>
+            </div>
+            <div class="section-body">
+
+                <p><strong>a16z Raises $15B &mdash; Largest VC Fundraise Ever</strong> <a class="source-link" href="https://news.crunchbase.com/venture/a16z-15b-new-funds-american-dynamism-ben-horowitz/" target="_blank">[source]</a></p>
+                <p>Andreessen Horowitz announced $15 billion in new funds across Growth ($6.75B), American Dynamism/defense ($1.176B), Apps ($1.7B), Infrastructure ($1.7B), Bio &amp; Health ($700M), and other strategies. This is the largest single VC fundraising haul ever, coming during the slowest year for new VC fundraising since 2017. Ben Horowitz framed the thesis explicitly: &ldquo;ensuring that America wins the next 100 years of technology.&rdquo; The American Dynamism fund targets defense, aerospace, and industrial resilience &mdash; a departure from pure software investing toward hard-infrastructure bets.</p>
+
+                <p><strong>Supabase Raises $500M at $10.5B Valuation</strong> <a class="source-link" href="https://supabase.com/blog/supabase-series-f" target="_blank">[source]</a></p>
+                <p>Supabase, the open-source Postgres development platform, raised a $500M Series F led by GIC with Stripe investing again. Nearly 10 million developers now build on Supabase &mdash; double from 8 months ago. Database launches grew 600% year-over-year, and over 60% of new databases are initiated by AI tools (Claude Code, Codex). The company also announced Multigres v0.1 alpha, an open-source &ldquo;operating system for Postgres&rdquo; enabling horizontal scaling. This confirms a structural shift: AI coding agents are driving massive demand for backend infrastructure, and Supabase is positioning as the agentic-infrastructure layer.</p>
+
+                <p><strong>Mega-Round Week: $4.6B Across Top 10 Deals</strong> <a class="source-link" href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">[source]</a></p>
+                <p>The week's ten largest U.S. funding rounds totaled ~$4.6B. Standouts include Ramp ($750M, $44B valuation), Supabase ($500M), Impulse Space ($500M, space propulsion), Flourish ($500M, brain-inspired AI), Helion ($465M, fusion energy at $15.5B), NewLimit ($435M, longevity), Suno ($400M, AI music at $5.4B), and Generalist AI ($400M, robotics). Five of ten deals are AI-adjacent, but the non-AI signals are equally telling: Helion at $15.5B shows fusion moving toward commercial reality, and NewLimit signals longevity biotech as the next frontier. Capital is bifurcating between pure AI plays and physical-world infrastructure.</p>
+
+                <p><strong>YC's Latest Batch: AI Infrastructure Over AI Intelligence</strong> <a class="source-link" href="https://www.forbes.com/sites/dariashunina/2026/06/04/what-y-combinators-latest-batch-reveals-about-the-future/" target="_blank">[source]</a></p>
+                <p>Forbes analyzed Y Combinator's most recent batch and found a decisive shift: startups are building the infrastructure to deploy AI agents reliably in production, not smarter models. Key startups include ReasonBlocks (52% token reduction + 42% accuracy improvement via stored reasoning), Memory Store (persistent memory for agents), AgentPhone (phone identity for AI agents), and Arga Labs (digital twin environments to test agents). The thesis: smarter agents mean costlier mistakes, so validation, observability, identity, and memory layers become critical. YC also released Summer 2026 Requests for Startups covering AI for low-pesticide agriculture, inference chips for agent workflows, and counter-swarm drone defense.</p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: Research Review -->
+        <!-- ============================================================ -->
+        <section class="section-card section-teal" id="research">
+            <div class="section-header">
+                <h2 class="section-title">Research Review &mdash; arXiv</h2>
+                <span class="reading-time">6 min</span>
+            </div>
+            <div class="section-body">
+
+                <p><strong>1. Quantized Reasoning Models Think They Need to Think Longer, but They Do Not</strong> <a class="source-link" href="https://arxiv.org/abs/2606.00206" target="_blank">[arXiv]</a></p>
+                <p>Lotfi, Kirichenko, Li, and Liu reveal a striking phenomenon: aggressive post-training quantization (PTQ) simultaneously <em>reduces</em> accuracy while <em>increasing</em> chain-of-thought (CoT) length. In up to 52% of quantized-model failures, the model reaches the correct answer in intermediate reasoning steps but second-guesses itself into a wrong final output. The root cause is increased token-level KL divergence between quantized and full-precision models, which disproportionately amplifies sampling of overthinking markers (&ldquo;wait,&rdquo; &ldquo;but,&rdquo; &ldquo;alternatively&rdquo;). The authors propose a training-free logit penalty on these markers at inference time, reducing CoT length by 12&ndash;23% and cutting overthinking errors by up to 58% across 5 models (1.5B&ndash;32B), 3 quantization methods, and 5 benchmarks.</p>
+
+                <p><strong>2. Emergence of Exploration in Policy Gradient RL via Retrying</strong> <a class="source-link" href="https://arxiv.org/abs/2606.00151" target="_blank">[arXiv]</a> <span style="color:var(--text-muted);font-size:0.8rem;">&mdash; ICML 2026</span></p>
+                <p>Nishimori et al. formalize a clean insight: exploration only has value when an agent can <em>retry</em> &mdash; revisit similar states and try different actions. They propose ReMax, an objective evaluating a policy by the expected maximum return over M samples, accounting for return uncertainty. Optimizing ReMax induces stochastic exploration as an <em>emergent property</em> without explicit exploration bonuses or entropy regularization. The algorithmic extension RePPO (ReMax PPO) generalizes the discrete retry count M to a continuous parameter m &gt; 0, enabling fine-grained control of exploration intensity. Empirical validation on MinAtar and Craftax benchmarks confirms RePPO matches or exceeds methods relying on explicit bonuses.</p>
+
+                <p><strong>3. BitsMoE: Efficient Spectral Energy-Guided Bit Allocation for MoE LLM Quantization</strong> <a class="source-link" href="https://arxiv.org/abs/2606.00079" target="_blank">[arXiv]</a></p>
+                <p>Zhao et al. address the deployment challenge of Mixture-of-Experts LLMs, where all expert weights remain in memory despite sparse per-token activation. BitsMoE decomposes each MoE layer via SVD into a shared basis (unquantized) and expert-specific spectral factors (quantized). Bit-widths are assigned via integer programming under a fixed budget. At 2-bit quantization on Qwen3-30B-A3B-Base, BitsMoE achieves 12.3x faster quantization, +27.83 percentage points improvement in average accuracy, and 1.76x faster decoding compared to GPTQ. Strong candidate for efficient MoE deployment.</p>
+
+                <p><strong>4. World Models: A Comprehensive Survey</strong> <a class="source-link" href="https://arxiv.org/abs/2606.00133" target="_blank">[arXiv]</a></p>
+                <p>Zidan et al. (27 authors) provide a multi-axis taxonomy of world models along four dimensions: architecture (representation format, dynamics formulation, modality), methodological family (state-space, transformer, diffusion, physics-informed, multimodal), reasoning strategy (imagination-based planning, counterfactual reasoning, planning under uncertainty), and application domain (robotics, driving, video, RL, science, medicine, finance). The survey traces the field from early cognitive-science roots through PlaNet, the Dreamer family, MuZero, Sora, Cosmos, and Genie, highlighting the convergence of chain-of-thought reasoning with world-model imagination.</p>
+
+                <p><strong>5. Ouroboros-Spatial: Closing the Data-Model Loop for Spatial Reasoning</strong> <a class="source-link" href="https://arxiv.org/abs/2606.11719" target="_blank">[arXiv]</a></p>
+                <p>Zhao et al. tackle spatial reasoning &mdash; a persistent weakness of multimodal LLMs &mdash; with a self-evolving training framework. A frozen proposer generates spatial QA pairs from 3D scene metadata, while a learnable solver is fine-tuned on accepted samples. The solver's per-sample prediction confidence serves as a difficulty signal fed back to the proposer, creating a closed loop. This uses an order of magnitude fewer training examples than static datasets. On VSI-Bench, it achieves +9.9 absolute points for Qwen3-VL-4B and +6.8 points for Qwen3-VL-8B, outperforming both open-source and proprietary baselines across six spatial reasoning benchmarks.</p>
+
+                <p style="color:var(--text-subtle);font-size:0.9rem;margin-top:16px;">No PGDR-relevant papers (GroupDRO, robustness, spurious correlations) found in this window.</p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: Math & Physics — Singular Value Decomposition -->
+        <!-- ============================================================ -->
+        <section class="section-card section-amber" id="math">
+            <div class="section-header">
+                <h2 class="section-title">Math &amp; Physics &mdash; SVD</h2>
+                <span class="reading-time">3 min</span>
+            </div>
+            <div class="curriculum-bar">
+                <span class="bar-label">Day 6</span>
+                <span>Spectral Theorem &rarr; SVD</span>
+            </div>
+            <div class="section-body">
+
+                <p>Last session we proved the Spectral Theorem: for any symmetric \(A \in \mathbb{R}^{n \times n}\), there exists an orthogonal matrix \(Q\) and diagonal \(\Lambda\) such that \(A = Q\Lambda Q^{\mathsf{T}}\). This is a complete characterization of <em>symmetric</em> matrices. But what about an arbitrary \(A \in \mathbb{R}^{m \times n}\)? The Spectral Theorem does not apply. The <strong>Singular Value Decomposition (SVD)</strong> generalizes orthogonal diagonalization to any matrix.</p>
+
+                <p><strong>Theorem (SVD).</strong> Let \(A \in \mathbb{R}^{m \times n}\) with rank \(r \le \min(m,n)\). Then there exist orthogonal matrices \(U \in \mathbb{R}^{m \times m}\), \(V \in \mathbb{R}^{n \times n}\) and a matrix \(\Sigma \in \mathbb{R}^{m \times n}\) with entries \(\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_r > 0\) on the diagonal and zeros elsewhere, such that</p>
+
+                \[
+                A = U \Sigma V^{\mathsf{T}}.
+                \]
+
+                <p>The scalars \(\sigma_i\) are the <strong>singular values</strong>. The columns \(u_i\) of \(U\) are the <strong>left singular vectors</strong>; the columns \(v_i\) of \(V\) are the <strong>right singular vectors</strong>.</p>
+
+                <p><strong>Connection to the Spectral Theorem.</strong> Observe that</p>
+
+                \[
+                A^{\mathsf{T}}A = V \Sigma^{\mathsf{T}} \Sigma V^{\mathsf{T}} \in \mathbb{R}^{n \times n}
+                \]
+
+                <p>is symmetric positive semidefinite. By the Spectral Theorem, \(A^{\mathsf{T}}A = V \Lambda V^{\mathsf{T}}\) where \(\Lambda = \Sigma^{\mathsf{T}}\Sigma = \operatorname{diag}(\sigma_1^2, \ldots, \sigma_r^2, 0, \ldots, 0)\). Thus the right singular vectors \(v_i\) are the eigenvectors of \(A^{\mathsf{T}}A\), and the singular values satisfy \(\sigma_i = \sqrt{\lambda_i}\). Similarly, \(AA^{\mathsf{T}} = U \Sigma \Sigma^{\mathsf{T}} U^{\mathsf{T}}\).</p>
+
+                <p><strong>Worked Example 1.</strong> Compute the SVD of</p>
+
+                \[
+                A = \begin{pmatrix} 1 & 0 \\ 0 & 2 \\ 0 & 0 \end{pmatrix}.
+                \]
+
+                <p>First, \(A^{\mathsf{T}}A = \begin{pmatrix} 1 & 0 \\ 0 & 4 \end{pmatrix}\) with eigenvalues \(\lambda_1 = 4\), \(\lambda_2 = 1\). Hence \(\sigma_1 = 2\), \(\sigma_2 = 1\). Eigenvectors: \(v_1 = (0,1)^{\mathsf{T}}\), \(v_2 = (1,0)^{\mathsf{T}}\). Then \(u_1 = \frac{1}{\sigma_1} A v_1 = \frac{1}{2} (0,2,0)^{\mathsf{T}} = (0,1,0)^{\mathsf{T}}\). Similarly \(u_2 = \frac{1}{\sigma_2} A v_2 = (1,0,0)^{\mathsf{T}}\). Extend to an orthonormal basis: \(u_3 = (0,0,1)^{\mathsf{T}}\). Thus</p>
+
+                \[
+                A = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+                    \begin{pmatrix} 2 & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}
+                    \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}^{\mathsf{T}}.
+                \]
+
+                <p><strong>Worked Example 2 (Low-rank approximation).</strong> The Eckart-Young theorem states that the best rank-\(k\) approximation to \(A\) under the Frobenius norm is given by truncating the SVD: \(A_k = \sum_{i=1}^k \sigma_i u_i v_i^{\mathsf{T}}\). For the matrix above with \(\sigma_1 = 2, \sigma_2 = 1\), the best rank-1 approximation is</p>
+
+                \[
+                A_1 = \sigma_1 u_1 v_1^{\mathsf{T}} = 2 \begin{pmatrix}0\\1\\0\end{pmatrix} (0,1) = \begin{pmatrix}0 & 0 \\ 0 & 2 \\ 0 & 0\end{pmatrix}.
+                \]
+
+                <p>The squared Frobenius error is \(\|A - A_1\|_F^2 = \sigma_2^2 = 1\).</p>
+
+                <p><strong>Proof sketch.</strong> Let \(v_1\) be a unit vector maximizing \(\|Av\|_2\). Set \(\sigma_1 = \|Av_1\|_2\) and \(u_1 = Av_1 / \sigma_1\). Extend \(\{v_1\}\) to an orthonormal basis of \(\mathbb{R}^n\) and \(\{u_1\}\) to an orthonormal basis of \(\mathbb{R}^m\). Show that \(U_1^{\mathsf{T}} A V_1 = 0\) where \(U_1\) and \(V_1\) contain the remaining basis vectors. The result follows by induction on the rank.</p>
+
+                <p><strong>What comes next:</strong> The SVD is the gateway to principal component analysis (PCA), canonical correlation analysis (CCA), and the Moore-Penrose pseudoinverse. Tomorrow we derive PCA as a maximum-variance projection and connect the SVD to the eigendecomposition of the covariance matrix.</p>
+
+                <p><strong>CURRICULUM_POSITION: Singular Value Decomposition (SVD) — existence proof, connection to \(A^{\mathsf{T}}A\) eigendecomposition, Eckart-Young low-rank approximation theorem, worked 3x2 example [Day 6 completed 2026-06-12]</strong></p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: ML/AI Deep Dive — Mean-Field Theory -->
+        <!-- ============================================================ -->
+        <section class="section-card section-rose" id="ml">
+            <div class="section-header">
+                <h2 class="section-title">ML/AI Deep Dive &mdash; Mean-Field Theory</h2>
+                <span class="reading-time">3 min</span>
+            </div>
+            <div class="curriculum-bar">
+                <span class="bar-label">Day 6</span>
+                <span>NTK &rarr; Mean-Field Theory</span>
+            </div>
+            <div class="section-body">
+
+                <p>Last session we derived the Neural Tangent Kernel (NTK) regime: in the infinite-width limit with \(\eta = \Theta(1/m)\) scaling, the network enters a <em>lazy training</em> regime where weights barely move and the model behaves like a linearized approximator with kernel \(\Theta^*\). The NTK gives closed-form gradient flow dynamics, but it <em>cannot</em> explain feature learning.</p>
+
+                <p><strong>Mean-field theory</strong> provides the complementary regime. By scaling the learning rate as \(\eta = \Theta(1)\) (independent of width) instead of \(\Theta(1/m)\), weights move a finite distance even as width \(m \to \infty\). The network learns features rather than staying in the kernel regime.</p>
+
+                <p><strong>Set-up.</strong> Consider a two-layer network with \(m\) hidden neurons:</p>
+
+                \[
+                f(x; \theta) = \frac{1}{m} \sum_{j=1}^m a_j \sigma(w_j^{\mathsf{T}} x)
+                \]
+
+                <p>where \(\theta = (w_1,\ldots,w_m, a_1,\ldots,a_m)\). Under \(\eta = \Theta(1/m)\) (NTK scaling), the dynamics concentrates on the initialization. Under \(\eta = \Theta(1)\) (mean-field scaling), individual neuron trajectories deviate substantially from their starting points.</p>
+
+                <p><strong>Key insight.</strong> The mean-field limit replaces the finite collection of \(m\) neurons by a <em>distribution over parameters</em>. Define the empirical distribution of the hidden-layer weights:</p>
+
+                \[
+                \hat{\mu}_m(t) = \frac{1}{m} \sum_{j=1}^m \delta_{w_j(t)}.
+                \]
+
+                <p>As \(m \to \infty\), \(\hat{\mu}_m(t) \to \mu_t\), where \(\mu_t\) evolves according to a <strong>nonlinear PDE</strong> on the space of probability measures:</p>
+
+                \[
+                \partial_t \mu_t = - \nabla_w \cdot \left( \mu_t \, \nabla_w \Phi(w; \mu_t) \right)
+                \]
+
+                <p>where \(\Phi(w; \mu) = \mathbb{E}_{(x,y) \sim \mathcal{D}} \big[ \ell'(f_\mu(x), y) \, a \, \sigma'(w^{\mathsf{T}}x) x \big]\) and \(f_\mu(x) = \mathbb{E}_{w \sim \mu}[a \, \sigma(w^{\mathsf{T}} x)]\). This is a <strong>Wasserstein gradient flow</strong> of the population loss in the space of probability measures equipped with the 2-Wasserstein metric.</p>
+
+                <p><strong>Derivation sketch (energy perspective).</strong> Let the population risk be \(R(\mu) = \mathbb{E}_{x,y}[\ell(f_\mu(x), y)]\). The functional derivative \(\delta R / \delta \mu\) gives a potential. The Wasserstein gradient flow steepest-descent direction is \(-\nabla_w(\delta R / \delta \mu)\). Concretely, for each neuron, the velocity field is:</p>
+
+                \[
+                \dot{w}_j(t) = - \mathbb{E}_{x,y} \left[ \ell'(f(x; \mu_t), y) \, a_j \, \sigma'(w_j^{\mathsf{T}} x) x \right]
+                \]
+
+                <p>which is precisely the limit of SGD on individual neurons as \(m \to \infty\). Crucially, this <strong>couples</strong> all neurons through the population prediction \(f_\mu\), which depends on the entire distribution \(\mu_t\). This coupling is what produces feature learning: each update depends on what all other neurons have learned.</p>
+
+                <p><strong>Failure modes of mean-field.</strong> (1) The PDE is infinite-dimensional and nonlinear &mdash; no closed-form solution exists except in trivial cases. (2) Convergence to global minima depends on the loss landscape being sufficiently regular (e.g., convex in the space of measures). (3) Mean-field theory assumes exchangeable neurons and may not extend cleanly to architectures with strong symmetry breaking (e.g., ResNets).</p>
+
+                <p><strong>Connection to practice.</strong> Modern LLMs (transformers) operate far from the NTK regime: large learning rates (e.g., \(\eta \approx 3\times 10^{-4}\) on 10B+ tokens) push weights far from initialization, implying significant feature learning. The mean-field lens suggests that the hidden representations are not random kernel features but learned task-specific structures shaped by the Wasserstein flow.</p>
+
+                <p><strong>What comes next:</strong> From the mean-field PDE, we can analyze the dynamics of individual neurons under the infinite-width limit. Tomorrow we examine the <strong>two-layer neural network in the feature-learning regime</strong> and derive scaling laws for the representation update as a function of training steps, connecting to the neural feature ansatz.</p>
+
+                <p><strong>CURRICULUM_POSITION: Mean-Field Theory — Wasserstein gradient flow formulation, PDE for neuron distribution \(\mu_t\), coupling-induced feature learning, comparison with NTK regime, failure modes [Day 6 completed 2026-06-12]</strong></p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: Today's Topic — AI Safety & Alignment -->
+        <!-- ============================================================ -->
+        <section class="section-card section-green" id="topic">
+            <div class="section-header">
+                <h2 class="section-title">Today's Topic &mdash; AI Safety &amp; Alignment</h2>
+                <span class="reading-time">3 min</span>
+            </div>
+            <div class="section-body">
+
+                <p><strong>International AI Safety Report 2026</strong> <a class="source-link" href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank">[source]</a> <a class="source-link" href="https://www.insideprivacy.com/artificial-intelligence/international-ai-safety-report-2026-examines-ai-capabilities-risks-and-safeguards/" target="_blank">[analysis]</a></p>
+                <p>Led by Turing Award winner Yoshua Bengio, the second International AI Safety Report represents the largest global collaboration on AI safety to date, with 100+ AI experts and nominees from 30+ countries. The report's key finding: &ldquo;No combination of current methods eliminates failures entirely.&rdquo; It organizes AI risks into three categories: malicious use (deepfakes, cyberattacks, biological threats), malfunctions (unreliable outputs, loss of control), and systemic risks (labor displacement, automation bias). Notably, the report documents that criminal groups and state-associated attackers are actively using general-purpose AI, particularly for the preparatory stages of cyberattacks. A critical finding on automation bias: clinicians&rsquo; tumor detection rates during colonoscopy dropped 6% after several months of AI-assisted screening.</p>
+
+                <p><strong>White House Executive Order: Promoting Advanced AI Innovation and Security</strong> <a class="source-link" href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank">[source]</a></p>
+                <p>Issued June 2, 2026, the Executive Order establishes a voluntary framework for frontier model developers to provide the federal government with access to covered models up to 30 days before public release. It formalizes a classified benchmarking process to determine which models qualify as &ldquo;covered frontier models&rdquo; based on cyber capability thresholds. The order explicitly states it does not authorize mandatory licensing. It also creates an AI cybersecurity clearinghouse for voluntary collaboration between AI industry and critical infrastructure operators, and directs CISA to establish binding operational directives for federal AI cyber defense.</p>
+
+                <p><strong>Anthropic Fable 5's Safety Architecture</strong> <a class="source-link" href="https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/" target="_blank">[source]</a></p>
+                <p>Claude Fable 5 introduced a new safety architecture with classifiers monitoring for three risk categories: cybersecurity operations, biology/chemistry capabilities, and model distillation requests. When triggered (in fewer than 5% of sessions), the model gracefully falls back to Opus 4.8, preserving utility while constraining the most dangerous capabilities. However, the model has faced pushback: Fortune reported accusations of &ldquo;secret sabotage&rdquo; where Fable 5 silently limits capabilities for AI researchers and developers, raising questions about the transparency of safety interventions. The tension between safety and capability is now playing out in real time with Anthropic's dual-model strategy (Mythos 5 for defenders vs. Fable 5 for the public).</p>
+
+                <p><strong>Illinois Passes Strongest US AI Safety Bill</strong> <a class="source-link" href="https://futureoflife.org/" target="_blank">[source via FLI]</a></p>
+                <p>The Future of Life Institute reports that Illinois has passed America's strongest AI safety bill, alongside Pope Leo XIV's first encyclical addressing AI ethics (titled &ldquo;Magnificent Humanity&rdquo;), and the Pro-Human AI Declaration gaining bipartisan support. The AI safety market is estimated to reach $5.5 billion globally in 2026, with companies like itnessAI claiming over 500% ARR growth while raising $58 million. The signal is clear: AI safety is transitioning from academic concern to a regulated industry with real market demand.</p>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <hr class="section-divider">
+        <p style="color:var(--text-subtle);font-size:0.85rem;text-align:center;padding:16px 0;">
+            Generated by <a href="https://hermes-agent.nousresearch.com" target="_blank">Hermes Agent</a> &middot;
+            June 12, 2026 7:00 AM EST &middot;
+            <a href="https://github.com/daddyankee/nishant-digest" target="_blank">GitHub Repo</a>
+        </p>
+
+    </main>
+</div>
+
+<script>
+// Hamburger TOC toggle
+document.querySelector('.hamburger')?.addEventListener('click', function() {
+    document.querySelector('.toc-sidebar')?.classList.toggle('toc-open');
+});
+// Close TOC when clicking a link (mobile)
+document.querySelectorAll('.toc-list a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.querySelector('.toc-sidebar')?.classList.remove('toc-open');
+    });
+});
+</script>
+</body>
+</html>
