@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant's Daily Digest — Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0f1117;
+            color: #e2e8f0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 24px;
+        }
+        .digest-list {
+            list-style: none;
+        }
+        .digest-list li {
+            margin-bottom: 12px;
+        }
+        .digest-list li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #181b24;
+            border: 1px solid #2d3748;
+            border-radius: 8px;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .digest-list li a:hover {
+            border-color: #60a5fa;
+            background: #1e2230;
+            text-decoration: none;
+        }
+        .digest-list .date {
+            font-weight: 600;
+        }
+        .digest-list .arrow {
+            color: #64748b;
+            font-size: 1.2rem;
+        }
+        .digest-list li a:hover .arrow {
+            color: #60a5fa;
+        }
+        .empty-state {
+            color: #64748b;
+            text-align: center;
+            padding: 48px 0;
+            font-size: 1rem;
+        }
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            padding: 24px;
+            border-top: 1px solid #2d3748;
+            margin-top: 48px;
+        }
+        footer a { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nishant's Daily Digest</h1>
+        <p class="subtitle">Auto-generated research digest by <a href="https://hermes-agent.nousresearch.com" style="color:#60a5fa;">Hermes Agent</a></p>
+
+        <ul class="digest-list" id="digestList">
+            <li class="empty-state">No digests published yet. The first one lands at 7:00 AM EST tomorrow.</li>
+        </ul>
+    </div>
+    <footer>
+        <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">GitHub Repo</a></p>
+    </footer>
+</body>
+</html>

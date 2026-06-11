@@ -1,0 +1,404 @@
+/* =============================================
+   Nishant's Daily Digest — Base Styles
+   ============================================= */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: #93bbfd;
+    text-decoration: underline;
+}
+
+code, pre {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+/* --- Top Navigation --- */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 17, 23, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #2d3748;
+}
+
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+}
+
+.nav-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.nav-home-link {
+    color: #e2e8f0;
+}
+.nav-home-link:hover {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.nav-date {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+/* --- Page Layout --- */
+.page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    display: flex;
+    gap: 32px;
+    position: relative;
+}
+
+.digest-content {
+    flex: 1;
+    max-width: 860px;
+    min-width: 0;
+}
+
+/* --- TOC Sidebar --- */
+.toc-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.toc-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-list li {
+    margin-bottom: 6px;
+}
+
+.toc-list li a {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.4;
+    display: block;
+    padding: 4px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: all 0.15s ease;
+}
+
+.toc-list li a:hover {
+    color: #60a5fa;
+    border-left-color: #60a5fa;
+    text-decoration: none;
+}
+
+/* --- Digest Meta Header --- */
+.digest-meta {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #2d3748;
+}
+
+.digest-meta h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    color: #f1f5f9;
+}
+
+.digest-meta .meta-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.digest-meta .meta-stats span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.digest-meta .topic-teaser {
+    margin-top: 12px;
+    font-size: 1rem;
+    color: #22c55e;
+    font-weight: 600;
+}
+
+/* --- Section Cards --- */
+.section-card {
+    background: #181b24;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+.section-card:hover {
+    border-color: #4a5568;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+}
+
+/* Section color accents */
+.section-blue::before    { background: #3b82f6; }
+.section-purple::before  { background: #8b5cf6; }
+.section-teal::before    { background: #14b8a6; }
+.section-amber::before   { background: #f59e0b; }
+.section-rose::before    { background: #f43f5e; }
+.section-green::before   { background: #22c55e; }
+
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #f1f5f9;
+}
+
+.reading-time {
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #1e293b;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.section-body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #cbd5e1;
+}
+
+.section-body p {
+    margin-bottom: 14px;
+}
+
+.section-body p:last-child {
+    margin-bottom: 0;
+}
+
+.section-body strong {
+    color: #f1f5f9;
+}
+
+/* --- Curriculum Progress Bar --- */
+.curriculum-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    background: #1e293b;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.curriculum-bar .bar-label {
+    font-weight: 600;
+}
+
+/* --- PGDR Callout --- */
+.pgdr-callout {
+    background: rgba(20, 184, 166, 0.08);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: 6px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+
+.pgdr-callout .callout-label {
+    font-weight: 700;
+    color: #14b8a6;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* --- Source Links --- */
+.source-link {
+    font-size: 0.8rem;
+    color: #64748b;
+    display: inline-block;
+    margin-left: 4px;
+}
+.source-link:hover {
+    color: #60a5fa;
+}
+
+/* --- Failure Notice --- */
+.failure-notice {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: #fca5a5;
+    font-size: 0.9rem;
+    margin: 12px 0;
+}
+
+/* --- Section Divider --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid #2d3748;
+    margin: 32px 0;
+}
+
+/* --- Footer --- */
+.digest-footer {
+    border-top: 1px solid #2d3748;
+    padding: 24px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-inner {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.footer-inner p {
+    margin-bottom: 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .toc-sidebar {
+        display: none;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 280px;
+        height: calc(100vh - 56px);
+        background: #181b24;
+        border-right: 1px solid #2d3748;
+        padding: 24px;
+        z-index: 99;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+    }
+
+    .toc-sidebar.toc-open {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-date {
+        display: none;
+    }
+
+    .page-wrapper {
+        padding: 16px 12px;
+    }
+
+    .section-card {
+        padding: 16px;
+    }
+
+    .digest-meta h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .reading-time {
+        align-self: flex-start;
+    }
+
+    .digest-meta .meta-stats {
+        flex-direction: column;
+        gap: 6px;
+    }
+}

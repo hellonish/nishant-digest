@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant's Daily Digest — {DATE}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../base/styles.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                enableMenu: false
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav class="top-nav" id="topNav">
+        <div class="nav-inner">
+            <div class="nav-title">
+                <a href="/nishant-digest/" class="nav-home-link">Nishant's Daily Digest</a>
+            </div>
+            <div class="nav-date">{DATE}</div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="toc-sidebar" id="tocSidebar">
+            <div class="toc-header">Contents</div>
+            <ul class="toc-list" id="tocList">
+                <!-- Populated by JS -->
+            </ul>
+        </aside>
+
+        <main class="digest-content" id="mainContent">
+            <!-- Digest content injected here -->
+        </main>
+    </div>
+
+    <footer class="digest-footer">
+        <div class="footer-inner">
+            <p>Generated on {DATE} by <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener">Hermes Agent</a></p>
+            <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Populate floating TOC from section headings
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocList = document.getElementById('tocList');
+            const sections = document.querySelectorAll('.section-card');
+            sections.forEach(function(section) {
+                const titleEl = section.querySelector('.section-title');
+                if (titleEl) {
+                    const id = section.id;
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + id;
+                    a.textContent = titleEl.textContent;
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                }
+            });
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburgerBtn');
+            const toc = document.getElementById('tocSidebar');
+            if (hamburger && toc) {
+                hamburger.addEventListener('click', function() {
+                    toc.classList.toggle('toc-open');
+                });
+            }
+
+            // Close TOC when clicking a link on mobile
+            tocList.addEventListener('click', function() {
+                if (window.innerWidth <= 900) {
+                    toc.classList.remove('toc-open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
