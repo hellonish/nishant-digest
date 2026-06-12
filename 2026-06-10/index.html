@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant's Daily Digest — June 10, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base/styles.css">
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+            options: { skipHtmlTypes: 'script' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Inline style overrides for day-specific accents */
+        .section-card { padding: 28px; }
+        .paper-block { margin-bottom: 20px; padding-left: 4px; border-left: 2px solid var(--border); padding-left: 16px; }
+        .paper-block:last-child { margin-bottom: 0; }
+        .paper-title { font-weight: 700; font-size: 1rem; color: var(--text-primary); margin-bottom: 4px; }
+        .paper-meta { font-size: 0.8rem; color: var(--text-subtle); margin-bottom: 6px; }
+        .paper-meta a { color: var(--link); }
+        .pgdr-tag { display: inline-block; background: rgba(20, 184, 166, 0.15); color: #14b8a6; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; letter-spacing: 0.03em; }
+        .section-body h4 { color: var(--text-primary); font-size: 0.95rem; margin: 16px 0 8px 0; }
+        .section-body h3 { color: var(--text-primary); font-size: 1.05rem; margin: 18px 0 10px 0; }
+        .section-body ul { margin-bottom: 14px; padding-left: 20px; }
+        .section-body li { margin-bottom: 6px; }
+        .section-body .inline-code { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; background: var(--bg-meta); padding: 1px 5px; border-radius: 3px; }
+        .startup-card { margin-bottom: 18px; padding: 16px; background: var(--bg-meta); border-radius: 6px; }
+        .startup-card:last-child { margin-bottom: 0; }
+        .startup-name { font-weight: 700; font-size: 1rem; color: var(--text-primary); }
+        .startup-tag { font-size: 0.75rem; color: var(--text-subtle); }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <span class="nav-title"><a href="../" class="nav-home-link">Nishant's Digest</a></span>
+            <span class="nav-date">June 10, 2026 · Day 5</span>
+            <button class="hamburger" onclick="document.querySelector('.toc-sidebar').classList.toggle('toc-open')" aria-label="Toggle table of contents">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="toc-sidebar">
+            <div class="toc-header">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#industry">Industry News</a></li>
+                <li><a href="#startups">Startup Signals</a></li>
+                <li><a href="#research">Research Review</a></li>
+                <li><a href="#math">Math &amp; Physics</a></li>
+                <li><a href="#ml">ML/AI Deep Dive</a></li>
+                <li><a href="#topic">Robotics Today</a></li>
+            </ul>
+        </aside>
+
+        <main class="digest-content">
+            <div class="digest-meta">
+                <h1>Daily Research Digest</h1>
+                <div class="meta-stats">
+                    <span>&#128197; June 10, 2026</span>
+                    <span>&#128196; ~3,700 words</span>
+                    <span>&#9201; ~18 min read</span>
+                    <span>&#127919; Day 5 of curriculum</span>
+                </div>
+                <div class="topic-teaser">&#129302; Today's focus: Robotics — Figure 03, CVPR 2026 ManipArena, NVIDIA Cosmos &amp; GR00T</div>
+            </div>
+
+            <!-- === SECTION 1: INDUSTRY NEWS === -->
+            <section id="industry" class="section-card section-blue">
+                <div class="section-header">
+                    <h2 class="section-title">Industry News</h2>
+                    <span class="reading-time">3 min</span>
+                </div>
+                <div class="section-body">
+
+                    <h4>Apple Unveils AFM 3 &amp; Siri AI at WWDC 2026</h4>
+                    <p>Apple announced a five-model family of third-generation Apple Foundation Models (AFM 3) powering a deeply integrated "Siri AI" personal assistant. The lineup spans on-device (3B dense, 20B sparse via Instruction-Following Pruning), server-side Apple silicon, and a "Cloud Pro" model running on <strong>NVIDIA GPUs via Google Cloud</strong> — a first-of-its-kind cross-cloud privacy guarantee extended to third-party hardware. Human evaluations show AFM 3 Cloud preferred over the 2025 generation 64.7% of the time on text tasks, with a ~36% relative improvement in response satisfaction. The sparse architecture stores only 1–4B experts in DRAM per task, scaling active parameters dynamically based on task difficulty. <a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models" target="_blank" class="source-link">[source]</a></p>
+
+                    <h4>Google DeepMind Releases DiffusionGemma — Open-Source Text Diffusion Model</h4>
+                    <p>DiffusionGemma generates text via a <strong>diffusion process</strong> (parallel block denoising) rather than traditional autoregression, marking a fundamental architectural departure from the transformer decoder paradigm. Built on a Gemma 4 26B MoE backbone (3.8B activated parameters), it achieves ~700 tokens/sec on an RTX 5090 and 1,000+ tokens/sec on an H100 — roughly 4x faster than similarly sized autoregressive models. The model starts with random placeholder tokens, then iteratively denoises 256-token blocks using bidirectional attention, and supports "re-noising" low-confidence tokens for self-correction — something impossible in causal architectures. Available under Apache 2.0 with a 256K context window and multimodal input support (text, image, video). <a href="https://arstechnica.com/google/2026/06/googles-latest-diffusiongemma-open-ai-model-comes-with-a-4x-speed-boost/" target="_blank" class="source-link">[source]</a></p>
+
+                    <h4>OpenAI Files for IPO, Plans ChatGPT Superapp Overhaul</h4>
+                    <p>OpenAI confidentially filed a Form S-1 with the SEC and announced the most significant ChatGPT redesign since its 2022 launch — transforming it into a "superapp" integrating coding tools (Codex), AI agents, image generation, and partner services (Canva, Booking.com). ChatGPT now serves 900M+ weekly active users with 50M+ consumer subscribers and 2M business clients. The overhaul elevates Codex to first-class citizen status within the interface, shifting toward enterprise agentic workflows. The confidential IPO filing values the company at an estimated $850B+. <a href="https://www.reuters.com/business/openai-plans-chatgpt-superapp-overhaul-ahead-listing-ft-reports-2026-06-07/" target="_blank" class="source-link">[source]</a></p>
+
+                    <h4>Microsoft Build 2026: Agent-First Platform with Web IQ &amp; MAI-Thinking-1</h4>
+                    <p>Satya Nadella declared a platform shift from "software you operate to agents that do the work for you." Headline announcements included <strong>Web IQ</strong> — an AI-first web search stack for agent grounding (2.5x faster than alternatives) that is MCP-native — and <strong>MAI-Thinking-1</strong>, a 35B active-parameter reasoning model beating Sonnet 4.6 in blind tests and matching Opus 4.6 on SWE-Bench Pro. Microsoft also announced the Surface RTX Spark Dev Box (1 petaflop local AI compute), the Majorana 2 quantum chip (20-second average qubit lifetime, 1,000x reliability improvement), and open-sourced the ASSERT safety evaluation framework and Agent Control Specification. <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" class="source-link">[source]</a></p>
+
+                </div>
+            </section>
+
+            <!-- === SECTION 2: STARTUP SIGNALS === -->
+            <section id="startups" class="section-card section-purple">
+                <div class="section-header">
+                    <h2 class="section-title">Startup Signals</h2>
+                    <span class="reading-time">3 min</span>
+                </div>
+                <div class="section-body">
+
+                    <div class="startup-card">
+                        <div class="startup-name">F2 AI &mdash; $14M Seed <span class="startup-tag">YC, HighlandX</span></div>
+                        <p>AI-native end-to-end workflow platform for private credit and private markets. Automates deal screening, underwriting, and portfolio monitoring with an Excel-native AI engine that achieves 95.25% accuracy on SpreadsheetBench. Already deployed across 100+ funds and banks globally. Private markets is a ~$15T global asset class still reliant on manual spreadsheet work — F2 embeds directly into deal workflows. <a href="https://alleywatch.com/2026/06/f2-f2-ai-private-credit-markets-deal-underwriting-analysis-platform-don-muir/" target="_blank" class="source-link">[source]</a></p>
+                    </div>
+
+                    <div class="startup-card">
+                        <div class="startup-name">Endra &mdash; $50M Series A <span class="startup-tag">a16z-led, Norrsken VC</span></div>
+                        <p>AI platform that automates Mechanical, Electrical, and Plumbing (MEP) design for buildings. Ingests building model files, integrates with Revit, and lets engineers optimize fire, power, and plumbing systems — reducing weeks of manual work to a single sitting. a16z called this a bet on "rebuilding the software stack behind the built world." The global MEP services market is $150B+ and severely capacity-constrained by human talent availability. <a href="https://a16z.com/announcement/investing-in-endra/" target="_blank" class="source-link">[source]</a></p>
+                    </div>
+
+                    <div class="startup-card">
+                        <div class="startup-name">YC W26 Batch: The AI Agent Infrastructure Thesis <span class="startup-tag">YC</span></div>
+                        <p>Forbes published an analysis of YC's Winter 2026 batch revealing a clear thesis: the next phase of AI is shifting from smarter models to infrastructure for deploying AI agents reliably in production. Fourteen startups hit $1M ARR by Demo Day — a YC record. Notable companies include ReasonBlocks (52% token reduction, 42% accuracy improvement), Memory Store (shared memory layer for agents), Runtime (operational infrastructure for autonomous systems), and Minicor (AI agents for legacy Fortune 500 desktop apps — tripled MRR during batch). The batch crystallizes that YC sees the biggest opportunity in the memory, monitoring, validation, compute, and compliance layers that make agents trustworthy. <a href="https://www.forbes.com/sites/dariashunina/2026/06/04/what-y-combinators-latest-batch-reveals-about-the-future/" target="_blank" class="source-link">[source]</a></p>
+                    </div>
+
+                    <div class="startup-card">
+                        <div class="startup-name">Arc &mdash; $10.76M Seed <span class="startup-tag">a16z-led</span></div>
+                        <p>Voice AI platform for drive-thru ordering at quick-service restaurants. Arc's AI handles orders end-to-end, optimizes business performance, and integrates with existing restaurant operations. Previous AI drive-thru efforts (Presto, Valyant AI) had false starts, but a16z is betting the technology has reached production quality. This represents a classic a16z bet on AI entering the physical world in high-volume, labor-intensive workflows. <a href="https://fortune.com/2026/05/26/ai-drive-thru-a16z-arc-taco-bell-mcdonalds-fast-food/" target="_blank" class="source-link">[source]</a></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- === SECTION 3: RESEARCH REVIEW === -->
+            <section id="research" class="section-card section-teal">
+                <div class="section-header">
+                    <h2 class="section-title">Research Review</h2>
+                    <span class="reading-time">5 min</span>
+                </div>
+                <div class="section-body">
+
+                    <div class="curriculum-bar">
+                        <span class="bar-label">&#128218;</span> Domain: Robustness &middot; GroupDRO &middot; Optimization &middot; RL
+                    </div>
+
+                    <div class="pgdr-callout">
+                        <span class="callout-label">&#9889; PGDR Signal</span>
+                        <p>Three of five papers today are directly relevant to the PGDR project's core technical approach — spurious correlations, worst-group accuracy, and provable GroupDRO guarantees.</p>
+                    </div>
+
+                    <div class="paper-block">
+                        <div class="paper-title">Robust Learning of a Group DRO Neuron <span class="pgdr-tag">PGDR</span></div>
+                        <div class="paper-meta">Cao, Li, Karmalkar, Diakonikolas &mdash; arXiv cs.LG/cs.DS/math.OC &middot; v2 May 2026 &middot; <a href="https://arxiv.org/abs/2601.18115" target="_blank">arXiv:2601.18115</a></div>
+                        <p>Studies learning a single neuron under squared loss with arbitrary label noise and group-level distributional shifts, formulated as a Group DRO problem. The authors develop a computationally efficient primal-dual algorithm that outputs a weight vector constant-factor competitive with the optimal robust neuron under the worst-case group weighting. The dual extrapolation update directly confronts the inherent nonconvexity of the loss and provides provable guarantees for robustness to both arbitrary label corruptions and group-specific shifts. Practical implementation tested on LLM pre-training benchmarks. This is a rare GroupDRO paper with <strong>provable guarantees</strong> rather than heuristic improvements.</p>
+                    </div>
+
+                    <div class="paper-block">
+                        <div class="paper-title">Spurious Correlation-Aware Embedding Regularization (SCER) <span class="pgdr-tag">PGDR</span></div>
+                        <div class="paper-meta">Park, Kim, Lee, Yoo, Song (Yonsei) &mdash; arXiv cs.LG/cs.AI &middot; v2 Mar 2026 &middot; <a href="https://arxiv.org/abs/2511.04401" target="_blank">arXiv:2511.04401</a></div>
+                        <p>Proposes a theoretically grounded regularization method that directly constrains feature representations to suppress spurious correlations. The authors prove that worst-group error is governed by the ratio of reliance on spurious vs. core directions in the classifier's embedding space, identified via differences in group-wise mean embeddings across domains and classes. By imposing theoretical constraints at the embedding level, the model is forced to focus on core features while reducing sensitivity to spurious patterns. On Waterbirds achieves <strong>~90% worst-group accuracy</strong> (nearly doubling GroupDRO's baseline); on CelebA reaches <strong>~94% worst-group accuracy</strong> — outperforming all prior methods while maintaining strong average accuracy. Code available at github.com/MLAI-Yonsei/SCER.</p>
+                    </div>
+
+                    <div class="paper-block">
+                        <div class="paper-title">Mitigating Spurious Correlation via Distributionally Robust Learning with Hierarchical Ambiguity Sets <span class="pgdr-tag">PGDR</span></div>
+                        <div class="paper-meta">Jo, Kim, Chae &mdash; <strong>ICLR 2026</strong> &middot; <a href="https://arxiv.org/abs/2510.02818" target="_blank">arXiv:2510.02818</a></div>
+                        <p>Identifies a critical limitation of standard Group DRO: while robust to subpopulation/group shifts, it remains vulnerable to intra-group distributional shifts that disproportionately affect minority groups with limited samples. The authors propose a hierarchical extension that constructs nested ambiguity sets covering both inter-group and intra-group uncertainties, introducing new benchmark settings simulating realistic minority group distribution shifts — an underexplored challenge where existing methods consistently fail. On standard benchmarks (Waterbirds, CelebA), hierarchical DRO matches or exceeds Group DRO. On new minority shift benchmarks where Group DRO degrades <strong>10–20%</strong>, hierarchical DRO maintains high worst-group accuracy, demonstrating the importance of broadening the ambiguity set beyond group-level perturbations.</p>
+                    </div>
+
+                    <div class="paper-block">
+                        <div class="paper-title">Reinforcement Learning Disrupts Gradient-Based Adversarial Optimization</div>
+                        <div class="paper-meta">Zou, Zhao, Aghabagherloo, Singel&eacute;e, Degraeve, Preneel &mdash; arXiv v1 Jun 2026 &middot; <a href="https://arxiv.org/abs/2606.12251" target="_blank">arXiv:2606.12251</a></div>
+                        <p>Investigates whether training image classifiers with reinforcement learning (policy-gradient objectives and epsilon-greedy exploration) can disrupt the gradient structure exploited by adversarial attackers. Through systematic experiments on CIFAR-10, CIFAR-100, and ImageNet-100 with multiple architectures, the authors find that RL-trained classifiers significantly impair gradient-based adversarial optimization. Analysis via loss landscape visualization and gradient indicators reveals that RL acts as an implicit regularizer, producing models with highly unstable gradient directions and small gradient magnitudes that cause PGD steps to fail. Combining RL with adversarial training (RL-adv) provides a dual-layer defense: RL degrades gradient information at the gradient level while adversarial training strengthens decision boundaries at the boundary level. On CIFAR-10 with PGD-20 attacks, RL-adv improves robust accuracy by <strong>~12–15%</strong> over standard supervised adversarial training.</p>
+                    </div>
+
+                    <div class="paper-block">
+                        <div class="paper-title">TREAD: Task Robustness via Re-Labelling Vision-Action Robot Data</div>
+                        <div class="paper-meta">Kuramshin, Aslan, Neary, Berseth &mdash; arXiv cs.RO/cs.LG &middot; v1 Jun 2026 &middot; <a href="https://arxiv.org/abs/2606.10918" target="_blank">arXiv:2606.10918</a></div>
+                        <p>Addresses the problem of robot policies struggling with instruction following due to limited linguistic and action diversity in robotics datasets. TREAD leverages pretrained VLMs to augment existing datasets without additional data collection through three stages: generating semantic sub-tasks from original instructions, segmenting demonstration videos conditioned on these sub-tasks, and producing diverse instructions incorporating object properties. The augmented data decomposes long demonstrations into grounded language-action pairs and adds linguistically diverse goal descriptions. On the LIBERO benchmark, TREAD-augmented policies improve <strong>success rate on unseen task variations by ~15–20%</strong> over baselines trained on original data, improving both planning generalization (via trajectory decomposition) and language-conditioned policy generalization (via linguistic diversity).</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- === SECTION 4: MATH & PHYSICS === -->
+            <section id="math" class="section-card section-amber">
+                <div class="section-header">
+                    <h2 class="section-title">Math &amp; Physics &mdash; Day 5</h2>
+                    <span class="reading-time">3 min</span>
+                </div>
+                <div class="curriculum-bar">
+                    <span class="bar-label">&#128218; Track:</span> Linear Algebra &rarr; Spectral Decomposition &amp; PCA
+                </div>
+                <div class="section-body">
+
+                    <h3>The Spectral Theorem for Real Symmetric Matrices</h3>
+
+                    <p>Yesterday we established that a diagonalizable matrix $A \in \mathbb{R}^{n \times n}$ can be written as $A = PDP^{-1}$, where $D$ contains the eigenvalues and $P$ the eigenvectors. Today we consider the special case where $A$ is <strong>symmetric</strong> ($A = A^T$), which yields the strongest possible decomposition result: the Spectral Theorem.</p>
+
+                    <p><strong>Theorem (Spectral Theorem, Real Case).</strong> If $A \in \mathbb{R}^{n \times n}$ is symmetric, then $A$ has an orthonormal basis of eigenvectors and can be written as:</p>
+
+                    <p>$$A = Q \Lambda Q^T = \sum_{i=1}^n \lambda_i q_i q_i^T$$</p>
+
+                    <p>where $Q$ is orthogonal ($Q^T Q = I$) and $\Lambda$ is diagonal with eigenvalues $\lambda_1, \ldots, \lambda_n$. The column vectors $q_i$ are orthonormal eigenvectors.</p>
+
+                    <p><strong>Proof sketch.</strong> The key steps are: (1) all eigenvalues of a symmetric matrix are real; (2) eigenvectors corresponding to distinct eigenvalues are orthogonal; (3) for repeated eigenvalues, the eigenvectors span the eigenspace and can be orthogonalized via Gram-Schmidt. The induction proceeds by taking one eigenpair $(\lambda_1, q_1)$ with $\|q_1\| = 1$, extending to an orthonormal basis, and reducing to an $(n-1) \times (n-1)$ symmetric subproblem via a similarity transformation that preserves symmetry.</p>
+
+                    <h3>Worked Example: Spectral Decomposition</h3>
+
+                    <p>Let $A = \begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix}$. This is symmetric. The characteristic polynomial is $\det(A - \lambda I) = (4-\lambda)(1-\lambda) - 4 = \lambda^2 - 5\lambda = \lambda(\lambda - 5)$. Eigenvalues: $\lambda_1 = 5$, $\lambda_2 = 0$. For $\lambda = 5$: $(A - 5I)v = \begin{pmatrix} -1 & 2 \\ 2 & -4 \end{pmatrix}v = 0 \implies v_1 = (2, 1)^T$, normalized $q_1 = \frac{1}{\sqrt{5}}(2, 1)^T$. For $\lambda = 0$: $(A - 0I)v = \begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix}v = 0 \implies v_2 = (1, -2)^T$, normalized $q_2 = \frac{1}{\sqrt{5}}(1, -2)^T$. Verify $q_1 \cdot q_2 = 0$. Then:</p>
+
+                    <p>$$A = \frac{1}{5} \begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} \begin{pmatrix} 5 & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} = \frac{1}{5}\left[5 \cdot \begin{pmatrix} 4 & 2 \\ 2 & 1 \end{pmatrix} + 0 \cdot \begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}\right]$$</p>
+
+                    <h3>Connection to PCA (Principal Component Analysis)</h3>
+
+                    <p>Given centered data $X \in \mathbb{R}^{n \times d}$, the sample covariance is $S = \frac{1}{n-1} X^T X$, which is symmetric positive semidefinite. The spectral theorem gives $S = Q \Lambda Q^T$. The <strong>principal components</strong> are the eigenvectors $q_i$, and the variance along the $i$-th component is $\lambda_i / (d-1)$ (up to scaling). PCA projects data onto the top-$k$ eigenvectors, solving:</p>
+
+                    <p>$$\min_{W \in \mathbb{R}^{d \times k}, W^T W = I} \|X - XWW^T\|_F^2$$</p>
+
+                    <p>The optimal $W$ is the matrix of top-$k$ eigenvectors of $X^T X$ — this follows directly from the Eckart-Young theorem, which itself is a corollary of the spectral decomposition.</p>
+
+                    <h3>Preview of Day 6: Singular Value Decomposition (SVD)</h3>
+
+                    <p>The spectral theorem only applies to symmetric (or normal) matrices. The SVD generalizes the decomposition to <em>any</em> rectangular matrix $A \in \mathbb{R}^{m \times n}$, writing $A = U \Sigma V^T$ where $U$ and $V$ are orthogonal and $\Sigma$ is diagonal with singular values $\sigma_i = \sqrt{\lambda_i(A^T A)}$. This is the fundamental tool for low-rank approximation, matrix completion, and understanding the optimization landscape of deep networks through the lens of their weight matrices' singular value structure.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>CURRICULUM_POSITION:</strong> Spectral Theorem for symmetric matrices &mdash; orthogonal diagonalization, spectral decomposition $A = Q\Lambda Q^T$, connection to PCA via covariance eigendecomposition, Eckart-Young theorem preview, SVD preview for Day 6 [Day 5 completed 2026-06-10].</p>
+
+                </div>
+            </section>
+
+            <!-- === SECTION 5: ML/AI DEEP DIVE === -->
+            <section id="ml" class="section-card section-rose">
+                <div class="section-header">
+                    <h2 class="section-title">ML/AI Deep Dive &mdash; Day 5</h2>
+                    <span class="reading-time">3 min</span>
+                </div>
+                <div class="curriculum-bar">
+                    <span class="bar-label">&#128218; Track:</span> NTK &mdash; Neural Tangent Kernel
+                </div>
+                <div class="section-body">
+
+                    <h3>The Neural Tangent Kernel: Infinite-Width Limit of Gradient Descent</h3>
+
+                    <p>Yesterday we ended with a preview of the <strong>Neural Tangent Kernel (NTK)</strong> — the idea that infinitely wide neural networks trained by gradient descent behave like kernel methods. Today we develop this rigorously.</p>
+
+                    <p><strong>Setup.</strong> Consider a neural network $f(w, x) : \mathbb{R}^p \times \mathbb{R}^d \to \mathbb{R}$ with parameters $w$, trained on dataset $\{(x_i, y_i)\}_{i=1}^n$ using gradient flow (continuous-time gradient descent) with MSE loss:</p>
+
+                    <p>$$\mathcal{L}(w) = \frac{1}{2} \sum_{i=1}^n (f(w, x_i) - y_i)^2$$</p>
+
+                    <p>The gradient flow dynamics are $\dot{w} = -\nabla_w \mathcal{L}(w)$. The evolution of the network outputs on the training set is governed by:</p>
+
+                    <p>$$\dot{f}(w, x_i) = -\sum_{j=1}^n \underbrace{\langle \nabla_w f(w, x_i), \nabla_w f(w, x_j) \rangle}_{\Theta_{ij}(w)} (f(w, x_j) - y_j)$$</p>
+
+                    <p>The matrix $\Theta(w) \in \mathbb{R}^{n \times n}$ with entries $\Theta_{ij}(w) = \langle \nabla_w f(w, x_i), \nabla_w f(w, x_j) \rangle$ is the <strong>Neural Tangent Kernel</strong> evaluated at $w$.</p>
+
+                    <h3>The Infinite-Width Limit</h3>
+
+                    <p>In the limit as hidden width $m \to \infty$ with proper initialization (e.g., LeCun initialization: $w \sim \mathcal{N}(0, 2/m)$), the NTK converges to a <strong>deterministic kernel</strong> $\Theta^*$ that remains constant during training:</p>
+
+                    <p>$$\lim_{m \to \infty} \Theta_{ij}(w(t)) = \Theta^*_{ij} \quad \forall t \geq 0$$</p>
+
+                    <p>This phenomenon — the <strong>lazy training</strong> or <strong>kernel regime</strong> — means the network evolves linearly in parameter space: $f(w(t), x) \approx f(w(0), x) + \nabla_w f(w(0), x) \cdot (w(t) - w(0))$. The training dynamics become:</p>
+
+                    <p>$$\dot{f}(t) = -\Theta^* (f(t) - y)$$</p>
+
+                    <p>which is a linear ODE with closed-form solution $f(t) = (I - e^{-\Theta^* t})y + e^{-\Theta^* t}f(0)$. As $t \to \infty$, the training error converges to zero if $\Theta^*$ is positive definite.</p>
+
+                    <h3>Key Implications and Failure Modes</h3>
+
+                    <p><strong>1. Feature learning is suppressed.</strong> In the kernel regime, the learned representation is essentially the initial random features — the network does not learn new features, only how to combine them linearly. This is why infinitely wide networks underperform finite-width networks on tasks requiring hierarchical feature learning (e.g., ImageNet).</p>
+
+                    <p><strong>2. The <em>feature learning</em> regime.</strong> When width is finite (practical networks), the NTK <em>changes</em> during training, and feature learning occurs. The transition from kernel to feature learning regime is controlled by the ratio $\eta / m$ (learning rate / width) — this is the core insight of <strong>mean-field theory</strong> and <strong>µP (maximal update parameterization)</strong>.</p>
+
+                    <p><strong>3. Connection to modern architectures.</strong> Transformers in the infinite-width limit also converge to kernel methods (the "attention kernel"). However, the key architectural innovations (attention masking, layer normalization, residual connections) are precisely what break the kernel regime and enable feature learning even at practical widths.</p>
+
+                    <h3>Preview of Day 6: Mean-Field Theory &amp; Feature Learning</h3>
+
+                    <p>We will develop the mean-field limit of neural networks (Chizat &amp; Bach 2018, Mei et al. 2018), where width $\to \infty$ but the learning rate scales as $\eta = \mathcal{O}(m^{-1})$, allowing the network parameters to move substantially from initialization. This framework explains when and why feature learning occurs, and provides the theoretical foundation for modern scaling rules like µP and the "lottery ticket hypothesis."</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>CURRICULUM_POSITION:</strong> Neural Tangent Kernel (NTK) &mdash; NTK definition, gradient flow on MSE, infinite-width limit (deterministic kernel $\Theta^*$), lazy training / kernel regime, linear ODE dynamics, closed-form solution, feature learning suppression, transition to mean-field regime via $\eta/m$ scaling, connection to modern architectures [Day 5 completed 2026-06-10].</p>
+
+                </div>
+            </section>
+
+            <!-- === SECTION 6: DAILY TOPIC - ROBOTICS === -->
+            <section id="topic" class="section-card section-green">
+                <div class="section-header">
+                    <h2 class="section-title">Today's Topic: Robotics</h2>
+                    <span class="reading-time">2 min</span>
+                </div>
+                <div class="curriculum-bar">
+                    <span class="bar-label">&#128218; Daily:</span> Robotics &amp; Embodied AI
+                </div>
+                <div class="section-body">
+
+                    <p>Three major robotics themes converge this week as the industry enters what analysts are calling the "physical AI inflection point."</p>
+
+                    <h4>Figure AI &mdash; Figure 03 Humanoid Enters Commercial Deployments</h4>
+                    <p>Figure AI's third-generation humanoid, Figure 03, is now being deployed across logistics and manufacturing environments. Standing at 1.72m with a 5-hour runtime and multi-camera vision system powered by proprietary "Helix AI," Figure 03 represents the transition from lab prototype to commercial product. The company targets a load capacity of 20kg and emphasizes real-world autonomy in unstructured environments. Combined with 1X's NEO beginning home deliveries in 2026 and Boston Dynamics' Electric Atlas going to Hyundai's RMAC and Google DeepMind, 2026 marks the first year humanoids move beyond pilot projects to fleet-scale deployment. <a href="https://humanoidroboticstechnology.com/articles/top-12-humanoid-robots-of-2026/" target="_blank" class="source-link">[source]</a></p>
+
+                    <h4>CVPR 2026: Embodied AI Takes Center Stage</h4>
+                    <p>The CVPR 2026 Embodied AI Workshop hosted the <strong>ManipArena Competition</strong>, a real-robot manipulation challenge evaluating physical reasoning, generalization, and decision-making across 20 real-world tasks. The competition measures progress toward reproducible, general-purpose embodied intelligence, with companies accounting for &gt;75% of the conference expo showcasing AI and robotics technologies. Global robotics funding surpassed $10.3B USD in 2025, with a projected $124.37B market for 2026. The emphasis on reproducible benchmarking (ManipArena uses standardized hardware and evaluation protocols) addresses a longstanding weakness in robotics research where results often fail to generalize across platforms. <a href="https://cvpr.thecvf.com/Conferences/2026/News/Robotics" target="_blank" class="source-link">[source]</a></p>
+
+                    <h4>NVIDIA's Full-Stack Physical AI Platform</h4>
+                    <p>NVIDIA's National Robotics Week announcements reveal a comprehensive cloud-to-robot workflow. Key components include <strong>Isaac GR00T</strong> (open models enabling robots to understand natural language and perform complex multi-step tasks via vision-language-action reasoning), <strong>Cosmos World Models</strong> (synthetic data generation and training at scale), <strong>Newton 1.0</strong> (open-source physics engine with accurate collision detection for rigid and flexible parts), and <strong>RoboLab</strong> (high-fidelity simulation benchmark for generalist robot policies). The integration of simulation (Isaac Sim 6.0) with edge deployment (Jetson Thor) creates a closed loop: synthetic data from Cosmos trains policies in Isaac Sim, which are then deployed on Jetson hardware, with real-world data feeding back into the simulation pipeline. This is the infrastructure thesis for robotics that mirrors what transformer scaling did for NLP — dramatically reducing the cost of iteration. <a href="https://blogs.nvidia.com/blog/national-robotics-week-2026/" target="_blank" class="source-link">[source]</a></p>
+
+                    <p><strong>The underlying technical shift</strong> is the maturation of vision-language-action models (VLAs) that unify perception, reasoning, and control in a single learned representation — replacing the traditional robotics pipeline of separate object detection, motion planning, and trajectory optimization modules. The VLA approach, exemplified by GR00T and TREAD (covered in Research Review), allows robots to generalize to novel tasks and environments by leveraging the vast pretraining data of foundation models. This paradigm shift is why NVIDIA, Google DeepMind, and major VC firms are all betting on physical AI as the next frontier.</p>
+
+                </div>
+            </section>
+
+            <div class="digest-footer">
+                <div class="footer-inner">
+                    <p>Generated by Hermes Agent &middot; June 10, 2026 &middot; Sources verified via web_search and web_extract</p>
+                    <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">GitHub Repo</a> &middot; <a href="../">Back to Index</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Close TOC on mobile when clicking a link
+        document.querySelectorAll('.toc-list li a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelector('.toc-sidebar').classList.remove('toc-open');
+            });
+        });
+        // Close TOC on mobile when clicking outside
+        document.addEventListener('click', function(e) {
+            var toc = document.querySelector('.toc-sidebar');
+            var ham = document.querySelector('.hamburger');
+            if (toc.classList.contains('toc-open') && !toc.contains(e.target) && !ham.contains(e.target)) {
+                toc.classList.remove('toc-open');
+            }
+        });
+    </script>
+</body>
+</html>
