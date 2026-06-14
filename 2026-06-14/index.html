@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant's Daily Digest — June 14, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base/styles.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                enableMenu: false
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav class="top-nav" id="topNav">
+        <div class="nav-inner">
+            <div class="nav-title">
+                <a href="../index.html" class="nav-home-link">Nishant's Daily Digest</a>
+            </div>
+            <div class="nav-date">June 14, 2026</div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="toc-sidebar" id="tocSidebar">
+            <div class="toc-header">Contents</div>
+            <ul class="toc-list" id="tocList">
+                <!-- Populated by JS -->
+            </ul>
+        </aside>
+
+        <main class="digest-content" id="mainContent">
+
+            <!-- META HEADER -->
+            <div class="digest-meta">
+                <h1>Daily Research Digest &mdash; June 14, 2026</h1>
+                <div class="meta-stats">
+                    <span>&#128196; ~4,200 words</span>
+                    <span>&#9200; ~17 min read</span>
+                    <span>&#127758; Sunday Edition</span>
+                </div>
+                <div class="topic-teaser">&#127758; Today's Topic: Climate &amp; Energy AI &mdash; AI's dual role as carbon footprint accelerant and decarbonization catalyst reaches a tipping point.</div>
+            </div>
+
+            <!-- SECTION 1: Industry News -->
+            <section class="section-card section-blue" id="industry">
+                <div class="section-header">
+                    <div class="section-title">&#128293; Industry News &mdash; FAANG &amp; Frontier Labs</div>
+                    <span class="reading-time">4 min read</span>
+                </div>
+                <div class="section-body">
+
+                    <p><strong>Anthropic Releases Claude Fable 5 &mdash; First Public Mythos-Class Model</strong> <a href="https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html" target="_blank" class="source-link">[CNBC]</a> <a href="https://www.axios.com/2026/06/09/anthropic-mythos-class-safeguards" target="_blank" class="source-link">[Axios]</a></p>
+
+                    <p>On June 9, Anthropic released Claude Fable 5, the first Mythos-class model available to Pro, Max, Team, and Enterprise subscribers. Originally restricted to a handful of organizations in April 2026 over safety concerns, Fable 5 introduces a novel <strong>fallback routing</strong> mechanism: when a high-risk query is detected (cybersecurity exploits, biological weapons, etc.), the model automatically routes the question to the less-capable Claude Opus 4.8 rather than answering directly. This safety architecture uses new classifiers to detect and divert high-risk requests without degrading performance on safe tasks.</p>
+
+                    <p><strong>Key technical detail:</strong> In internal testing, Anthropic found Claude Mythos could write a working exploit for an already-disclosed Windows kernel vulnerability in just <strong>31 minutes</strong>. Fable 5 is priced at 2&times; the cost of Opus models ($10/M input, $50/M output tokens). Both OpenAI and Anthropic confidentially filed for IPOs this week, with Anthropic ($965B valuation) now surpassing OpenAI ($852B) by market valuation.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>Apple Unveils Third-Generation Foundation Models at WWDC 2026</strong> <a href="https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models" target="_blank" class="source-link">[Apple ML Research]</a> <a href="https://www.macrumors.com/2026/06/09/apple-outlines-major-ai-and-developer-tool-updates/" target="_blank" class="source-link">[MacRumors]</a></p>
+
+                    <p>Apple released its AFM 3 family of five models spanning on-device and server deployments. The headline innovation is the <strong>AFM 3 Core Advanced</strong> (20B parameters, sparse architecture) using <strong>Instruction-Following Pruning (IFP)</strong> &mdash; the model is stored in flash memory (NAND), and routing decisions are made per-prompt rather than token-by-token, dramatically reducing DRAM requirements. The server-side AFM 3 Cloud Pro delivers ~10% relative improvement over AFM 3 Cloud on text responses and ~14% on math and image understanding.</p>
+
+                    <p><strong>Key technical detail:</strong> Apple's per-prompt expert routing uses a lightweight dense block to select fixed sets of experts once per prompt, then periodically reselects during generation. Text-to-speech Mean Opinion Scores improved from 3.87&rarr;4.15 &mdash; a highly noticeable leap in conversational quality.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>OpenAI Acquires Ona to Give Codex Secure Enterprise Agent Environments</strong> <a href="https://www.cnbc.com/2026/06/11/open-ai-ona-acquisition-codex.html" target="_blank" class="source-link">[CNBC]</a> <a href="https://www.infoworld.com/article/4184648/openai-buys-ona-to-help-rein-in-ai-agents.html" target="_blank" class="source-link">[InfoWorld]</a></p>
+
+                    <p>On June 11, OpenAI announced its acquisition of Ona (79-person startup, formerly Gitpod), a provider of secure, pre-configured cloud environments for AI agents. Ona's technology gives Codex self-hosted sandboxes inside an enterprise's own VPC with persistent workspaces, credential management, governance controls, and audit trails. Weekly Ona agent sessions grew <strong>13&times; in production</strong> since the start of 2026. Codex now has 5+ million weekly active users.</p>
+
+                    <p><strong>Key technical detail:</strong> The acquisition is widely seen as OpenAI's answer to Anthropic's Claude Managed Agents (launched May 2026), which added self-hosted sandbox support. Estimated acquisition price: ~$450&ndash;500M (30&times; ~$7M revenue).</p>
+
+                </div>
+            </section>
+
+            <!-- SECTION 2: Startup Signals -->
+            <section class="section-card section-purple" id="startups">
+                <div class="section-header">
+                    <div class="section-title">&#128200; Startup Signals &mdash; YC, a16z &amp; Frontier</div>
+                    <span class="reading-time">3 min read</span>
+                </div>
+                <div class="section-body">
+
+                    <p><strong>Prometheus (Bezos-backed) Raises $12B Series B at $41B Valuation</strong> <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank" class="source-link">[TechCrunch]</a> <a href="https://www.axios.com/2026/06/11/prometheus-bezos-industrial-ai" target="_blank" class="source-link">[Axios]</a></p>
+
+                    <p>Jeff Bezos's AI startup Prometheus announced a massive $12B Series B round, valuing the company at $41B. Co-founded by Bezos and Vik Bajaj (ex-Verily/Google), Prometheus is building what it calls an <strong>&ldquo;artificial general engineer&rdquo;</strong> &mdash; AI software that automates the design and manufacturing of complex physical systems like jet engines, drug compounds, and industrial machinery. The round was backed by JPMorgan, Goldman Sachs, BlackRock, DST Global, and Arch Venture Partners, bypassing traditional venture capital entirely.</p>
+
+                    <p><strong>Why it matters:</strong> At $41B with only ~150 employees, Prometheus is the largest single bet on <strong>physical AI</strong> (vs. pure software AI). Bezos argues this will compress the &ldquo;dream-to-manufacturing&rdquo; cycle by 10&times; or more, representing the thesis that the physical world creates moats that code alone cannot.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>Mistral AI in Talks to Raise ~&euro;3B at &euro;20B Valuation</strong> <a href="https://www.bloomberg.com/news/articles/2026-06-12/france-s-mistral-in-funding-talks-at-about-20-billion-valuation" target="_blank" class="source-link">[Bloomberg]</a></p>
+
+                    <p>French AI startup Mistral AI is in early-stage talks to raise approximately &euro;3 billion ($3.5B) at a valuation of roughly &euro;20 billion, nearly doubling its &euro;11.7B valuation from September 2025. This would mark one of the largest funding rounds for a European AI company ever and underscores the continent's push to build sovereign AI capabilities. The 2&times; valuation surge in ~9 months reflects the insatiable demand for frontier AI model development and the massive capital requirements for training infrastructure.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>Coinbase Launches AI Agents That Can Trade and Pay for Research</strong> <a href="https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/" target="_blank" class="source-link">[TechCrunch]</a></p>
+
+                    <p>On June 11, Coinbase debuted &ldquo;Coinbase for Agents&rdquo; &mdash; a platform enabling AI agents to autonomously execute crypto trades, rebalance portfolios, and pay for premium research data via the open x402 payments protocol. The tool integrates with ChatGPT and Claude through Coinbase's MCP server. Agent traffic has already surpassed human traffic on the internet (per Cloudflare's CEO), and Coinbase is positioning itself as the critical payments/trading layer for the agentic economy.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>Equal AI Raises $30M Series B for AI Call Screening in India</strong> <a href="https://techcrunch.com/2026/06/11/equal-ai-raises-30m-to-screen-calls-so-indians-dont-have-to/" target="_blank" class="source-link">[TechCrunch]</a></p>
+
+                    <p>Hyderabad-based Equal AI raised $30M in Series B funding led by Prosus Ventures and Tomales Bay Capital. Its AI-powered call assistant answers and screens phone calls on users' behalf, supporting 10+ Indian languages with code-mixing. With 1M+ MAUs and 300K DAUs, it addresses a massive pain point: Indians receive 15&ndash;20 spam/financial-services calls daily on average.</p>
+
+                </div>
+            </section>
+
+            <!-- SECTION 3: Research Review -->
+            <section class="section-card section-teal" id="research">
+                <div class="section-header">
+                    <div class="section-title">&#129302; Research Review &mdash; arXiv &amp; Preprints</div>
+                    <span class="reading-time">5 min read</span>
+                </div>
+                <div class="section-body">
+
+                    <p><strong>1. WEAVER: A Multi-View World Model for Robotic Manipulation</strong><br>
+                    <em>Arnav Kumar Jain, Yilin Wu, Jesse Farebrother, Gokul Swamy, Andrea Bajcsy</em><br>
+                    <a href="https://arxiv.org/abs/2606.13672" target="_blank">arXiv:2606.13672</a> &mdash; Preprint, June 2026</p>
+
+                    <p>WEAVER (World Estimation Across Views for Embodied Reasoning) is a multi-view world model for robotic manipulation trained via flow-matching loss to predict future latents and reward values. It addresses three core desiderata for world models: fidelity, consistency, and efficiency. The model achieves a policy evaluation correlation of \(\rho = 0.870\) with real-world success rates, improves an existing \(\pi_{0.5}\) foundation model policy by <strong>38% in real-world success rate</strong>, and delivers 5&ndash;10&times; speedup over prior world models for test-time planning. WEAVER also generalizes robustly to out-of-distribution scenarios, making it a practical tool for policy evaluation with limited real-world interaction.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>2. LabVLA: Grounding Vision-Language-Action Models in Scientific Laboratories</strong><br>
+                    <em>Baochang Ren, Xinjie Liu, Xi Chen, Yanshuo Liu, Chenxi Li, Daqi Gao, et al.</em><br>
+                    <a href="https://arxiv.org/abs/2606.13578" target="_blank">arXiv:2606.13578</a> &mdash; Preprint, June 2026</p>
+
+                    <p>LabVLA bridges AI-generated scientific protocols and physical robotic execution in laboratory settings. It introduces three components: RoboGenesis (a simulation-based data engine composing lab workflows from atomic skills), a VLA policy built on Qwen3-VL-4B-Instruct with a two-stage training recipe (FAST action token pretraining + flow-matching posttraining with a DiT action expert), and LabUtopia (an evaluation benchmark for lab-specific VLA performance). The system achieves the highest average success rate under both in-distribution and out-of-distribution settings.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>3. Mana: Dexterous Manipulation of Articulated Tools</strong><br>
+                    <em>Zhao-Heng Yin, Guanya Shi, Pieter Abbeel, C. Karen Liu</em><br>
+                    <a href="https://arxiv.org/abs/2606.13677" target="_blank">arXiv:2606.13677</a> &mdash; Preprint, June 2026</p>
+
+                    <p>Mana reinterprets dexterous manipulation of articulated tools (scissors, pliers, shears) as an animation problem, employing a coarse-to-fine pipeline that transforms procedurally-generated grasp keyframes into manipulation trajectories through motion planning and RL. Across four articulated tools spanning different scales and joint types, Mana achieves <strong>zero-shot sim-to-real transfer</strong> for both grasping and in-hand manipulation, addressing a major gap in dexterous robotics where prior work focused overwhelmingly on rigid objects.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>4. SpikeDecoder: Realizing the GPT Architecture with Spiking Neural Networks</strong><br>
+                    <em>Claas Beger, Florian Walter, Alois Knoll</em><br>
+                    <a href="https://arxiv.org/abs/2606.12287" target="_blank">arXiv:2606.12287</a> &mdash; Preprint, June 2026</p>
+
+                    <p>SpikeDecoder is the first fully spiking-neural-network (SNN) implementation of a Transformer decoder block for NLP tasks. Unlike previous SNN Transformers (vision or encoder-only), SpikeDecoder is directly trainable (not converted from an ANN) and systematically analyzes the impact of replacing different ANN blocks with spike-based alternatives. The proposed architecture reduces theoretical energy consumption by <strong>87&ndash;93%</strong> compared to the equivalent ANN baseline, leveraging the event-driven nature of SNNs where spikes fire only when needed.</p>
+
+                    <hr class="section-divider">
+
+                    <p><strong>5. SPARC: Reliable Spatial Annotations from Robot Demonstrations at Scale</strong><br>
+                    <em>Nils Blank, Paul Mattes, Maximilian Xiling Li, Jakub Suliga, Thomas Roth, Moritz Reuss, et al.</em><br>
+                    <a href="https://arxiv.org/abs/2606.13497" target="_blank">arXiv:2606.13497</a> &mdash; Preprint, June 2026</p>
+
+                    <p>SPARC (Spatial Annotations from Robot Demonstrations with Reliability Calibration) is a risk-aware framework that automatically labels robot demonstrations with structured spatial annotations and assigns each a calibrated reliability score. Validated on 1,700 human-annotated demonstrations, SPARC significantly outperforms detection-only baselines and retains <strong>3&times; more samples</strong> at high-precision operating points. Policies trained on these annotations outperform baselines in cluttered, visually ambiguous real-world environments.</p>
+
+                    <hr class="section-divider">
+
+                    <div class="pgdr-callout">
+                        <span class="callout-label">&#128220; PGDR Spotlight &mdash; Robustness &amp; Spurious Correlations</span>
+
+                        <p><strong>Inside the Visual Mind: Neuroscience-Motivated Concept Circuits for Interpreting and Steering Vision Transformers</strong><br>
+                        <em>Li, Chen, Ma, Peng</em> &mdash; <a href="https://arxiv.org/abs/2606.06664" target="_blank">arXiv:2606.06664</a> (ICML 2026)</p>
+
+                        <p>Introduces ViSAE, a mechanistic interpretability toolbox that identifies concept circuits in ViTs using sparse autoencoders. Achieves a <strong>48.2% improvement in worst-group accuracy on WaterBirds</strong> &mdash; outperforming prior methods by 23.8% &mdash; by steering model behavior away from spurious cues through concept editing. This is a strong empirical result directly relevant to the PGDR project's focus on worst-group accuracy.</p>
+
+                        <p><strong>Is Spurious Correlation Removal Always Learnable?</strong><br>
+                        <em>Zhou, Li, Hu, Wang, Zhang, Zhang</em> &mdash; <a href="https://arxiv.org/abs/2606.12930" target="_blank">arXiv:2606.12930</a> (ICML 2026 Poster)</p>
+
+                        <p>Shows that invariant learning for spurious correlation removal can be <em>statistically identifiable</em> yet <em>computationally intractable</em> under standard cryptographic assumptions. Derives minimax rates \(\Theta(k(d-k)/(n|\mathcal{E}|))\) and phase transitions for invariant subspace recovery, motivating practical diversity diagnostics for practitioners.</p>
+
+                        <p><strong>Shortcut to Nowhere: Demystifying Deep Spurious Regression</strong><br>
+                        <em>Xu, Li, Wang, Yang</em> &mdash; <a href="https://arxiv.org/abs/2606.01723" target="_blank">arXiv:2606.01723</a> (cs.LG, June 2026)</p>
+
+                        <p>Formalizes Deep Spurious Regression (DSR) for continuous prediction tasks where spurious correlations lack the discrete group structure of classification. Proposes exploiting attribute similarity in both label and feature spaces.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 4: Math & Physics -->
+            <section class="section-card section-amber" id="math">
+                <div class="section-header">
+                    <div class="section-title">&#128214; Math &amp; Physics Curriculum &mdash; Spectral Clustering</div>
+                    <span class="reading-time">3 min read</span>
+                </div>
+
+                <div class="curriculum-bar">
+                    <span class="bar-label">Day 9/??</span>
+                    <span>Previous: Kernel PCA</span>
+                    <span>&rarr;</span>
+                    <span>Current: Spectral Clustering</span>
+                </div>
+
+                <div class="section-body">
+
+                    <p><strong>Prerequisites:</strong> Kernel PCA (Day 8), basic graph theory, eigendecomposition.</p>
+
+                    <p>K-Means and GMM assume convex clusters. When data lies on a low-dimensional manifold &mdash; concentric rings, intertwined spirals, or two moons &mdash; these methods fail. Spectral clustering embeds data into a space where Euclidean distance reflects graph connectivity rather than raw input distance.</p>
+
+                    <h4>Graph Construction</h4>
+
+                    <p>Given \(\{x_1, \dots, x_n\} \subset \mathbb{R}^d\), construct a weighted undirected graph \(G = (V, E, W)\). The most common choice uses the Gaussian kernel:</p>
+
+                    \[
+                    W_{ij} = \exp\left(-\frac{\|x_i - x_j\|_2^2}{2\sigma^2}\right)
+                    \]
+
+                    <p>This produces a dense similarity matrix \(W \in \mathbb{R}^{n \times n}\). <strong>Connection to KPCA:</strong> This weight matrix is exactly a Gram matrix \(K_{ij} = k(x_i, x_j)\) for the RBF kernel. Spectral clustering is kernel PCA on a specially normalized kernel.</p>
+
+                    <h4>The Unnormalized Graph Laplacian</h4>
+
+                    <p>Define \(D_{ii} = \sum_j W_{ij}\). The Laplacian \(L = D - W\) has the fundamental property:</p>
+
+                    \[
+                    f^\top L f = \frac{1}{2} \sum_{i,j} W_{ij} (f_i - f_j)^2.
+                    \]
+
+                    <p><em>Proof.</em> Expand \(f^\top D f = \sum_i D_{ii} f_i^2\) and \(f^\top W f = \sum_{i,j} f_i W_{ij} f_j\). Use \(D_{ii} = \sum_j W_{ij}\) and symmetrize to obtain the desired form. \(\blacksquare\)</p>
+
+                    <p>\(L\) is <strong>positive semidefinite</strong> with eigenvalues \(0 = \lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n\). The constant vector \(\mathbf{1}\) is an eigenvector with eigenvalue 0. The multiplicity of eigenvalue 0 equals the number of connected components of \(G\).</p>
+
+                    <h4>Normalized Laplacians</h4>
+
+                    <p>Two normalized versions correct degree imbalance:</p>
+
+                    \[
+                    L_{\text{sym}} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} W D^{-1/2}, \qquad
+                    L_{\text{rw}} = D^{-1} L = I - D^{-1} W.
+                    \]
+
+                    <p>The matrix \(P = D^{-1} W\) is the transition matrix of a random walk where \(P_{ij} = W_{ij}/D_{ii}\) is the jump probability from \(i\) to \(j\).</p>
+
+                    <h4>Worked Example: Two Moons (4 Points)</h4>
+
+                    <p>Four points with Gaussian kernel (\(\sigma = 1\)):</p>
+
+                    \[
+                    W = \begin{pmatrix}
+                    1.00 & 0.80 & 0.05 & 0.02 \\
+                    0.80 & 1.00 & 0.03 & 0.01 \\
+                    0.05 & 0.03 & 1.00 & 0.75 \\
+                    0.02 & 0.01 & 0.75 & 1.00
+                    \end{pmatrix}.
+                    \]
+
+                    <p>Eigenvalues: \(\lambda \approx (0, 0.04, 1.61, 1.67)\). The eigenvector \(f_2 \approx (0.52, 0.51, -0.49, -0.48)^\top\) perfectly separates clusters by sign. K-Means on \(f_2\) with \(k=2\) recovers the correct partition.</p>
+
+                    <h4>Connection to KPCA via Nyström</h4>
+
+                    <p>Spectral clustering with \(L_{\text{sym}}\) is equivalent to KPCA on the kernel \(K_{\text{spectral}} = D^{-1/2} W D^{-1/2}\), using <strong>bottom</strong> eigenvectors rather than top. The Nyström method provides the formal bridge for scaling to large datasets:</p>
+
+                    \[
+                    \tilde{K}_{nn} \approx K_{nm} K_{mm}^{-1} K_{mn}.
+                    \]
+
+                    <p><strong>What comes next:</strong> Laplacian Eigenmaps, Isomap, LLE, t-SNE, and UMAP &mdash; the manifold learning family that extends spectral embedding into nonlinear dimensionality reduction.</p>
+
+                    <p><em>CURRICULUM_POSITION: Spectral Clustering &mdash; graph Laplacian, normalized cuts, Rayleigh quotient, relationship to KPCA [completed Day 9 2026-06-14]</em></p>
+
+                </div>
+            </section>
+
+            <!-- SECTION 5: ML/AI Deep Dive -->
+            <section class="section-card section-rose" id="ml-dive">
+                <div class="section-header">
+                    <div class="section-title">&#129302; ML/AI Deep Dive &mdash; Scaling Laws &amp; Chinchilla</div>
+                    <span class="reading-time">3 min read</span>
+                </div>
+
+                <div class="curriculum-bar">
+                    <span class="bar-label">Day 9/??</span>
+                    <span>Previous: Deep Double Descent</span>
+                    <span>&rarr;</span>
+                    <span>Current: Scaling Laws &amp; Chinchilla</span>
+                </div>
+
+                <div class="section-body">
+
+                    <p><strong>Prerequisites:</strong> Deep Double Descent (Day 8), asymptotic statistical theory.</p>
+
+                    <h4>The Kaplan et al. (2020) Formulation</h4>
+
+                    <p>Neural scaling laws emerged from the observation that loss decreases as a power law in model parameters \(N\), dataset tokens \(D\), and total compute \(C\):</p>
+
+                    \[
+                    L(N, D) = \left(\frac{N_c}{N}\right)^{\alpha_N} + \left(\frac{D_c}{D}\right)^{\alpha_D} + L_\infty
+                    \]
+
+                    <p>with \(\alpha_N \approx 0.076\), \(\alpha_D \approx 0.103\). Under the constraint \(C \approx 6ND\) FLOPs, Kaplan found \(N_{\text{opt}} \propto C^{0.73}\) and \(D_{\text{opt}} \propto C^{0.27}\), implying one should grow model size much faster than data size.</p>
+
+                    <h4>Chinchilla's Correction</h4>
+
+                    <p>Hoffman et al. (2022) re-examined with isoFLOP profiling and found \(\alpha \approx 0.34\), \(\beta \approx 0.28\) (much steeper exponents). Optimizing the symmetric loss:</p>
+
+                    \[
+                    L(N, D) = \frac{A}{N^\alpha} + \frac{B}{D^\beta} + L_\infty
+                    \]
+
+                    <p>Substituting \(D = C / 6N\) and differentiating \(\frac{d}{dN} L(N, C/6N) = 0\) yields:</p>
+
+                    \[
+                    N_{\text{opt}} \propto C^{\beta/(\alpha+\beta)} \approx C^{0.45}, \qquad
+                    D_{\text{opt}} \propto C^{\alpha/(\alpha+\beta)} \approx C^{0.55}.
+                    \]
+
+                    <p><strong>This is the critical Chinchilla finding:</strong> optimal scaling spends slightly more on data than on parameters &mdash; the opposite of Kaplan's recommendation. For \(C = 10^{22}\) FLOPs: Kaplan prescribes 54B parameters; Chinchilla prescribes <strong>13.6B parameters trained on 123B tokens</strong>.</p>
+
+                    <h4>Worked Example: Compute-Optimal Allocation</h4>
+
+                    <p><strong>Budget:</strong> \(C = 1 \times 10^{22}\) FLOPs. Using Chinchilla coefficients \(A = 406.4, B = 410.7\):</p>
+
+                    \[
+                    N_{\text{opt}} \approx \left(\frac{0.34 \cdot 406.4}{0.28 \cdot 410.7 \cdot 6^{0.28}}\right)^{\frac{1}{0.62}} (10^{22})^{0.45} \approx 13.6\text{B params}
+                    \]
+
+                    \[
+                    D_{\text{opt}} = \frac{C}{6N_{\text{opt}}} \approx 1.23 \times 10^{11} \text{ tokens} \;(123\text{B})
+                    \]
+
+                    <h4>Connection to MoE</h4>
+
+                    <p>In Mixture-of-Experts with \(E\) experts and top-\(k\) routing, \(N_{\text{total}} = E \cdot N_{\text{expert}} + N_{\text{shared}}\) while \(N_{\text{active}} = k \cdot N_{\text{expert}} + N_{\text{shared}}\). The Chinchilla framework applies to <strong>active parameters</strong>, meaning MoE with \(k=2, E=64\) effectively decouples total parameters (memory footprint) from compute-optimal scaling, achieving a "free lunch" during training.</p>
+
+                    <p><strong>What comes next:</strong> Emergent abilities, the inverted scaling hypothesis, and scaling laws for transfer.</p>
+
+                    <p><em>CURRICULUM_POSITION: Scaling Laws &amp; the Chinchilla Optimal Compute Formula &mdash; Kaplan vs. Chinchilla scaling coefficients, compute-optimal frontier, MoE scaling implications [completed Day 9 2026-06-14]</em></p>
+
+                </div>
+            </section>
+
+            <!-- SECTION 6: Daily Topic -->
+            <section class="section-card section-green" id="topic">
+                <div class="section-header">
+                    <div class="section-title">&#127758; Daily Topic &mdash; Climate &amp; Energy AI</div>
+                    <span class="reading-time">3 min read</span>
+                </div>
+                <div class="section-body">
+
+                    <p><strong>AI's Dual Role: Environmental Burden and Decarbonization Catalyst</strong></p>
+
+                    <p>The tension between AI's environmental footprint and its potential for climate action reached a new inflection point this week. A <strong>United Nations University study</strong> <a href="https://news.un.org/en/story/2026/06/1167658" target="_blank">[UN News]</a> published on June 4, 2026, delivered stark projections: data centers could consume <strong>945 terawatt-hours of electricity annually by 2030</strong> &mdash; nearly triple the combined annual electricity use of Pakistan, Bangladesh, and Nigeria. AI-related water consumption could equal the basic annual domestic needs of <strong>1.3 billion people</strong>, and its land footprint may exceed 14,500 square kilometers.</p>
+
+                    <p>Critically, the UNU report identifies a <strong>rebound effect</strong>: efficiency improvements alone are unlikely to offset rising demands because lower costs and improved performance drive higher usage, ultimately increasing total resource consumption. Generating a single AI image requires &gt;1,000&times; the energy of simple text classification. Over 150 countries have no significant domestic AI infrastructure, while &gt;90% of AI-specialized computing capacity is concentrated in just two countries.</p>
+
+                    <p>On the mitigation side, the <strong>IEA</strong> estimates that AI adoption in end-use sectors could lead to <strong>1,400 Mt of CO&#8322; emissions reductions in 2035</strong> <a href="https://www.iea.org/reports/energy-and-ai/ai-and-climate-change" target="_blank">[IEA]</a>, achieved through smart grid optimization, renewable energy forecasting, and industrial efficiency. The WEF reports that AI's &ldquo;climate handprint&rdquo; (positive impact via helping others reduce emissions) is expanding rapidly, particularly in powering adaptation solutions <a href="https://www.weforum.org/stories/2026/05/ai-accelerating-energy-transition/" target="_blank">[WEF]</a>.</p>
+
+                    <p><strong>Technical frontier:</strong> The AI in energy distribution market is projected to grow from $7.1B in 2026 to $42.7B by 2033 at a 29.2% CAGR <a href="https://www.persistencemarketresearch.com/market-research/ai-in-energy-distribution-market.asp" target="_blank">[Persistence Market Research]</a>. AI-driven digital twins for real-time optimization of renewable energy systems are emerging as a leading application, with models using satellite data, weather sensors, and historical trends for real-time energy output predictions. The <strong>Next-Gen AI for Energy Summit 2026</strong> (Houston, November 2026) <a href="https://www.ai4energysummit.com/" target="_blank">[AI4Energy]</a> will serve as a key convening point for this rapidly growing intersection.</p>
+
+                    <p><strong>Bottom line:</strong> AI's environmental paradox &mdash; the technology that might help solve climate change is itself a growing contributor &mdash; demands governance frameworks that integrate AI infrastructure into energy, water, and land-use planning. The UNU report's call for transparency, efficiency-by-design, and lifecycle responsibility provides a framework, but implementation remains fragmented. The companies building the largest models (Anthropic, OpenAI, Google DeepMind) now face mounting pressure to disclose and reduce their environmental footprints alongside their capability milestones.</p>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="digest-footer">
+        <div class="footer-inner">
+            <p>Generated on June 14, 2026 by <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener">Hermes Agent</a></p>
+            <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Populate floating TOC from section headings
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocList = document.getElementById('tocList');
+            const sections = document.querySelectorAll('.section-card');
+            sections.forEach(function(section) {
+                const titleEl = section.querySelector('.section-title');
+                if (titleEl) {
+                    const id = section.id;
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + id;
+                    a.textContent = titleEl.textContent;
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                }
+            });
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburgerBtn');
+            const toc = document.getElementById('tocSidebar');
+            if (hamburger && toc) {
+                hamburger.addEventListener('click', function() {
+                    toc.classList.toggle('toc-open');
+                });
+            }
+
+            // Close TOC when clicking a link on mobile
+            tocList.addEventListener('click', function() {
+                if (window.innerWidth <= 900) {
+                    toc.classList.remove('toc-open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
