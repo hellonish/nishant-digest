@@ -110,11 +110,9 @@ function generateContentItem(item) {
  * Generate section HTML
  */
 function generateSection(section) {
-  const typeClass = `section-${section.type}`;
-
   let html = `
-    <section id="${section.id}" class="section-card ${typeClass}">
-      <div class="section-header ui-text">
+    <section id="${section.id}" class="section-card">
+      <div class="section-header">
         <h2 class="section-title">${section.title}</h2>
         <span class="reading-time">${section.readingMinutes} min read</span>
       </div>
@@ -152,15 +150,8 @@ function generateHTML(data) {
     <meta name="description" content="${data.meta.topicTeaser}">
     <title>Daily Digest — ${dateFormatted}</title>
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Optimized fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Psychologically-optimized styles -->
-    <link rel="stylesheet" href="../base/styles-enhanced.css">
+    <!-- Claude theme styles -->
+    <link rel="stylesheet" href="../base/styles.css">
 
     <!-- MathJax for mathematical notation -->
     <script>
@@ -180,7 +171,7 @@ function generateHTML(data) {
 <body>
     <!-- Navigation -->
     <nav class="top-nav">
-        <div class="nav-inner ui-text">
+        <div class="nav-inner">
             <div class="nav-title">
                 <a href="../index.html" class="nav-home-link">Nishant's Daily Digest</a>
             </div>
