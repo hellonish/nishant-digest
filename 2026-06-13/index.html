@@ -3,57 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anthropic export controls test AI safety governance; Trump EO sets voluntary frontier model framework; Deep double descent reveals overparameterization's surprising benefits.">
     <title>Daily Digest — June 13, 2026</title>
-    <link rel="stylesheet" href="../base/styles.css">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Psychologically-optimized fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Psychologically-optimized styles -->
+    <link rel="stylesheet" href="../base/styles-enhanced.css">
+
+    <!-- MathJax for mathematical notation -->
     <script>
         MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
-            svg: { fontCache: 'global' }
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                enableMenu: false
+            }
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
-    <!-- Sticky Nav -->
-    <nav class="sticky-nav">
-        <div class="nav-inner">
-            <a href="../index.html" class="nav-home">&#8592; Home</a>
-            <span class="nav-title">Daily Digest &mdash; June 13, 2026</span>
-            <span class="nav-badge">~3,800 words · 18 min read</span>
+    <!-- Navigation -->
+    <nav class="top-nav">
+        <div class="nav-inner ui-text">
+            <div class="nav-title">
+                <a href="../index.html" class="nav-home-link">Nishant's Daily Digest</a>
+            </div>
+            <div class="nav-date">June 13, 2026 &middot; Saturday</div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
         </div>
     </nav>
 
-    <!-- Floating TOC (Desktop) -->
-    <aside class="floating-toc">
-        <div class="toc-inner">
-            <h4>Jump to</h4>
-            <ul>
-                <li><a href="#industry">Industry News</a></li>
-                <li><a href="#startups">Startup Signals</a></li>
-                <li><a href="#research">Research Review</a></li>
-                <li><a href="#math">Math &amp; Physics</a></li>
-                <li><a href="#ml">ML Deep Dive</a></li>
-                <li><a href="#topic">Today's Topic</a></li>
-            </ul>
-        </div>
+    <!-- Table of Contents Sidebar -->
+    <aside class="toc-sidebar" id="tocSidebar">
+        <div class="toc-header">Jump to</div>
+        <ul class="toc-list">
+            <li><a href="#industry">Industry News</a></li>
+            <li><a href="#startups">Startup Signals</a></li>
+            <li><a href="#research">Research Review</a></li>
+            <li><a href="#math">Math &amp; Physics</a></li>
+            <li><a href="#ml">ML Deep Dive</a></li>
+            <li><a href="#topic">Today's Topic</a></li>
+        </ul>
     </aside>
 
-    <main class="digest-container">
+    <!-- Main Content -->
+    <div class="page-wrapper">
+        <main class="digest-content">
+            <!-- Header -->
+            <header class="digest-meta">
+                <h1>Daily Research Digest</h1>
+                <div class="meta-stats">
+                    <span>📅 June 13, 2026 &middot; Saturday</span>
+                    <span>📄 ~3,800 words</span>
+                    <span>⏱ ~18 min read</span>
+                </div>
+                <div class="topic-teaser">
+                    Anthropic export controls test AI safety governance; Trump EO sets voluntary frontier model framework; Deep double descent reveals overparameterization's surprising benefits.
+                </div>
+            </header>
 
-        <!-- Header -->
-        <header class="digest-header">
-            <h1>Daily Research Digest</h1>
-            <p class="header-date">June 13, 2026 &middot; Saturday</p>
-            <p class="header-stats">~3,800 words · ~18 min read</p>
-            <p class="header-teaser">Anthropic export controls test AI safety governance; Trump EO sets voluntary frontier model framework; Deep double descent reveals overparameterization's surprising benefits.</p>
-        </header>
-
-        <!-- ========== SECTION 1: Industry News (BLUE) ========== -->
-        <section id="industry" class="section-card accent-blue">
-            <div class="section-header">
-                <h2>Industry News</h2>
-                <span class="reading-time">5 min read</span>
-            </div>
+            <!-- ========== SECTION 1: Industry News (BLUE) ========== -->
+            <section id="industry" class="section-card section-blue">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">Industry News</h2>
+                    <span class="reading-time">5 min read</span>
+                </div>
             <div class="section-body">
 
                 <div class="news-item">
@@ -87,12 +111,12 @@
             </div>
         </section>
 
-        <!-- ========== SECTION 2: Startup Signals (PURPLE) ========== -->
-        <section id="startups" class="section-card accent-purple">
-            <div class="section-header">
-                <h2>Startup Signals</h2>
-                <span class="reading-time">4 min read</span>
-            </div>
+            <!-- ========== SECTION 2: Startup Signals (PURPLE) ========== -->
+            <section id="startups" class="section-card section-purple">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">Startup Signals</h2>
+                    <span class="reading-time">4 min read</span>
+                </div>
             <div class="section-body">
 
                 <div class="news-item">
@@ -122,12 +146,12 @@
             </div>
         </section>
 
-        <!-- ========== SECTION 3: Research Review (TEAL) ========== -->
-        <section id="research" class="section-card accent-teal">
-            <div class="section-header">
-                <h2>Research Review</h2>
-                <span class="reading-time">5 min read</span>
-            </div>
+            <!-- ========== SECTION 3: Research Review (TEAL) ========== -->
+            <section id="research" class="section-card section-teal">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">Research Review</h2>
+                    <span class="reading-time">5 min read</span>
+                </div>
             <div class="section-body">
 
                 <div class="paper-item">
@@ -177,16 +201,18 @@
             </div>
         </section>
 
-        <!-- ========== SECTION 4: Math & Physics (AMBER) ========== -->
-        <section id="math" class="section-card accent-amber">
-            <div class="section-header">
-                <h2>Math &amp; Physics &mdash; Kernel PCA</h2>
-                <span class="reading-time">4 min read</span>
-            </div>
-            <div class="curriculum-bar">
-                <div class="curriculum-fill" style="width: 73%;"></div>
-                <span class="curriculum-label">Day 8 of 11 &middot; Kernel Methods Track</span>
-            </div>
+            <!-- ========== SECTION 4: Math & Physics (AMBER) ========== -->
+            <section id="math" class="section-card section-amber">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">Math &amp; Physics &mdash; Kernel PCA</h2>
+                    <span class="reading-time">4 min read</span>
+                </div>
+                <div class="curriculum-bar">
+                    <span class="curriculum-label">Day 8 of 11 &middot; Kernel Methods Track</span>
+                    <div style="width: 100px; height: 6px; background: var(--border-light); border-radius: 3px; overflow: hidden;">
+                        <div class="curriculum-fill" style="width: 73%;"></div>
+                    </div>
+                </div>
             <div class="section-body">
 
                 <h3>From Linear PCA to Kernel PCA</h3>
@@ -283,16 +309,18 @@
             </div>
         </section>
 
-        <!-- ========== SECTION 5: ML Deep Dive (ROSE) ========== -->
-        <section id="ml" class="section-card accent-rose">
-            <div class="section-header">
-                <h2>ML Deep Dive &mdash; Deep Double Descent</h2>
-                <span class="reading-time">4 min read</span>
-            </div>
-            <div class="curriculum-bar">
-                <div class="curriculum-fill" style="width: 73%;"></div>
-                <span class="curriculum-label">Day 8 of 11 &middot; Modern Deep Learning Theory</span>
-            </div>
+            <!-- ========== SECTION 5: ML Deep Dive (ROSE) ========== -->
+            <section id="ml" class="section-card section-rose">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">ML Deep Dive &mdash; Deep Double Descent</h2>
+                    <span class="reading-time">4 min read</span>
+                </div>
+                <div class="curriculum-bar">
+                    <span class="curriculum-label">Day 8 of 11 &middot; Modern Deep Learning Theory</span>
+                    <div style="width: 100px; height: 6px; background: var(--border-light); border-radius: 3px; overflow: hidden;">
+                        <div class="curriculum-fill" style="width: 73%;"></div>
+                    </div>
+                </div>
             <div class="section-body">
 
                 <h3>The Bias-Variance Tradeoff, Revisited</h3>
@@ -365,12 +393,12 @@
             </div>
         </section>
 
-        <!-- ========== SECTION 6: Today's Topic (GREEN) ========== -->
-        <section id="topic" class="section-card accent-green">
-            <div class="section-header">
-                <h2>Today's Topic &mdash; AI Safety &amp; Alignment</h2>
-                <span class="reading-time">3 min read</span>
-            </div>
+            <!-- ========== SECTION 6: Today's Topic (GREEN) ========== -->
+            <section id="topic" class="section-card section-green">
+                <div class="section-header ui-text">
+                    <h2 class="section-title">Today's Topic &mdash; AI Safety &amp; Alignment</h2>
+                    <span class="reading-time">3 min read</span>
+                </div>
             <div class="section-body">
 
                 <p>This week, AI safety and alignment moved from abstract research conference debates to the center of U.S. national security policy &mdash; driven by three intersecting events that together define a new regulatory paradigm.</p>
@@ -408,14 +436,39 @@
                 </p>
 
             </div>
-        </section>
+            </section>
 
-        <!-- Footer -->
-        <footer class="digest-footer">
-            <p>Generated autonomously by Nishant's Research Director &middot; June 13, 2026 &middot; 7:00 AM EST</p>
-            <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank">Source</a> &middot; <a href="https://daddyankee.github.io/nishant-digest/" target="_blank">Archive</a></p>
-        </footer>
+        </main>
+    </div>
 
-    </main>
+    <!-- Footer -->
+    <footer class="digest-footer">
+        <div class="footer-inner">
+            <p>Generated on June 13, 2026 by <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener">Hermes Agent</a></p>
+            <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">Source on GitHub</a></p>
+        </div>
+    </footer>
+
+    <!-- Mobile TOC Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburgerBtn');
+        const toc = document.getElementById('tocSidebar');
+
+        if (hamburger && toc) {
+            hamburger.addEventListener('click', function() {
+                toc.classList.toggle('toc-open');
+            });
+
+            // Close TOC when clicking a link on mobile
+            const tocLinks = toc.querySelectorAll('a');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 1400) {
+                        toc.classList.remove('toc-open');
+                    }
+                });
+            });
+        }
+    </script>
 </body>
 </html>

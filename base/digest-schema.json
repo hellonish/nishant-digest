@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Daily Digest Schema",
+  "description": "Schema for Hermes Agent to generate daily research digests",
+  "type": "object",
+  "required": ["date", "meta", "sections"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date format (YYYY-MM-DD)",
+      "example": "2026-06-13"
+    },
+    "meta": {
+      "type": "object",
+      "required": ["wordCount", "readingMinutes", "topicTeaser"],
+      "properties": {
+        "wordCount": {
+          "type": "integer",
+          "description": "Total word count for the digest",
+          "minimum": 2000,
+          "maximum": 6000
+        },
+        "readingMinutes": {
+          "type": "integer",
+          "description": "Estimated reading time in minutes (wordCount / 250)",
+          "minimum": 8,
+          "maximum": 25
+        },
+        "topicTeaser": {
+          "type": "string",
+          "description": "Engaging 1-2 sentence teaser highlighting the most interesting content. Should create curiosity and motivation to read.",
+          "minLength": 80,
+          "maxLength": 250
+        },
+        "dayOfWeek": {
+          "type": "string",
+          "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "description": "6 sections: Industry News, Startup Signals, Research Review, Math & Physics, ML Deep Dive, Today's Topic",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "$ref": "#/definitions/section"
+      }
+    }
+  },
+  "definitions": {
+    "section": {
+      "type": "object",
+      "required": ["id", "type", "title", "readingMinutes", "content"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "HTML anchor ID for navigation",
+          "pattern": "^[a-z-]+$",
+          "enum": ["industry", "startups", "research", "math", "ml", "topic"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Visual theme for the section",
+          "enum": ["blue", "purple", "teal", "amber", "rose", "green"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Section heading. Should be descriptive and engaging.",
+          "minLength": 5,
+          "maxLength": 80,
+          "examples": [
+            "Industry News",
+            "Startup Signals",
+            "Research Review",
+            "Math & Physics — Kernel PCA",
+            "ML Deep Dive — Deep Double Descent",
+            "Today's Topic — AI Safety & Alignment"
+          ]
+        },
+        "readingMinutes": {
+          "type": "integer",
+          "description": "Estimated reading time for this section only",
+          "minimum": 2,
+          "maximum": 8
+        },
+        "curriculum": {
+          "type": "object",
+          "description": "Optional curriculum tracking for Math and ML sections",
+          "properties": {
+            "day": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
+            },
+            "totalDays": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
+            },
+            "track": {
+              "type": "string",
+              "description": "Name of the learning track",
+              "examples": ["Kernel Methods Track", "Modern Deep Learning Theory"]
+            },
+            "progressPercent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Calculated as (day / totalDays) * 100"
+            }
+          },
+          "required": ["day", "totalDays", "track", "progressPercent"]
+        },
+        "content": {
+          "type": "array",
+          "description": "Array of content items (news, papers, explanations)",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "$ref": "#/definitions/contentItem"
+          }
+        }
+      }
+    },
+    "contentItem": {
+      "type": "object",
+      "required": ["type", "title", "body"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of content item",
+          "enum": ["news", "paper", "startup", "explanation", "topic-analysis"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Item headline. Should be clear, specific, and engaging.",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "Optional subtitle or metadata (e.g., 'Authors: X, Y, Z · Venue: CVPR 2026')",
+          "maxLength": 200
+        },
+        "body": {
+          "type": "array",
+          "description": "Array of paragraphs. Each paragraph is HTML string supporting <strong>, <em>, <a>, <code>.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "description": "HTML paragraph content"
+          }
+        },
+        "keyTakeaway": {
+          "type": "string",
+          "description": "Optional highlighted key result or insight. Will be displayed prominently.",
+          "maxLength": 300
+        },
+        "sources": {
+          "type": "array",
+          "description": "Source links with labels",
+          "items": {
+            "type": "object",
+            "required": ["label", "url"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Display text for the link",
+                "examples": ["arXiv:2606.00079", "TechCrunch", "OpenAI Blog"]
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Full URL to the source"
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Optional categorization tags",
+          "items": {
+            "type": "string",
+            "examples": ["PGDR", "CVPR 2026", "Series B", "Export Controls"]
+          }
+        },
+        "callout": {
+          "type": "object",
+          "description": "Optional callout box for highlighting connections or insights",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["pgdr", "key-insight", "connection"]
+            },
+            "content": {
+              "type": "string",
+              "description": "HTML content for the callout"
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "date": "2026-06-13",
+      "meta": {
+        "wordCount": 3800,
+        "readingMinutes": 18,
+        "topicTeaser": "Anthropic export controls test AI safety governance; Trump EO sets voluntary frontier model framework; Deep double descent reveals overparameterization's surprising benefits.",
+        "dayOfWeek": "Saturday"
+      },
+      "sections": [
+        {
+          "id": "industry",
+          "type": "blue",
+          "title": "Industry News",
+          "readingMinutes": 5,
+          "content": [
+            {
+              "type": "news",
+              "title": "U.S. Government Orders Anthropic to Cut Foreign Access to Mythos 5 and Fable 5",
+              "body": [
+                "On June 12, the Trump administration issued an export control directive ordering Anthropic to suspend all access to its flagship models — Mythos 5 and Fable 5 — for any foreign national, including those within the United States.",
+                "Commerce Secretary Howard Lutnick's letter to CEO Dario Amodei cited a third-party jailbreak claim as the trigger."
+              ],
+              "keyTakeaway": "Fable 5 uses a novel safety routing mechanism — when it detects a high-risk query (cybersecurity, biology, chemistry, distillation), it falls back to Claude Opus 4.8 rather than blocking outright. Priced at $10/M input tokens, $50/M output tokens.",
+              "sources": [
+                {
+                  "label": "Axios",
+                  "url": "https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security"
+                },
+                {
+                  "label": "CNBC",
+                  "url": "https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

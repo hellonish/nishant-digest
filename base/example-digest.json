@@ -1,0 +1,214 @@
+{
+  "date": "2026-06-14",
+  "meta": {
+    "wordCount": 3500,
+    "readingMinutes": 16,
+    "topicTeaser": "OpenAI's reasoning models achieve 90%+ on competition math; Kernel ridge regression reveals the secret geometry of overparameterization; The robotics foundation model race heats up.",
+    "dayOfWeek": "Sunday"
+  },
+  "sections": [
+    {
+      "id": "industry",
+      "type": "blue",
+      "title": "Industry News",
+      "readingMinutes": 5,
+      "content": [
+        {
+          "type": "news",
+          "title": "OpenAI Ships o3-mini — Reasoning Model at GPT-4 Turbo Pricing",
+          "body": [
+            "OpenAI released o3-mini on June 13, pricing it at $3/M input tokens and $15/M output—matching GPT-4 Turbo while achieving 90.7% on AIME 2025 (American Invitational Mathematics Examination) and 87.2% on Codeforces (Div. 2) problems. The model uses reinforcement learning over chain-of-thought traces to improve multi-step reasoning.",
+            "The technical innovation: o3-mini generates multiple reasoning paths in parallel, scores them via a learned verifier, then selects the highest-confidence solution. This 'process supervision' approach outperforms outcome supervision (rewarding only final answers) by 12-15 percentage points on math and coding benchmarks.",
+            "Anthropic responded within 48 hours by dropping Claude 3.7 Opus pricing to $2.50/M input, escalating the reasoning model price war. Both companies are racing toward 'GPT-4 level reasoning at GPT-3.5 prices' as the new competitive baseline."
+          ],
+          "keyTakeaway": "Process supervision via parallel reasoning paths + learned verifiers yields 12-15pp gains over outcome-only RL on complex reasoning tasks.",
+          "sources": [
+            {
+              "label": "OpenAI Blog",
+              "url": "https://openai.com/index/o3-mini"
+            },
+            {
+              "label": "TechCrunch",
+              "url": "https://techcrunch.com/2026/06/13/openai-o3-mini-reasoning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "startups",
+      "type": "purple",
+      "title": "Startup Signals",
+      "readingMinutes": 4,
+      "content": [
+        {
+          "type": "startup",
+          "title": "Physical Intelligence Raises $400M Series B at $2.8B — Robotics Foundation Models",
+          "body": [
+            "Physical Intelligence (Pi) announced a $400M Series B led by Thrive Capital at a $2.8B post-money valuation on June 12. The company is building π₀ (pi-zero), a vision-language-action foundation model trained on 10M+ hours of robot manipulation data across 50+ robot morphologies.",
+            "The technical bet: rather than hand-coding robot controllers, π₀ learns a unified policy via next-action prediction on internet-scale robot data (similar to how LLMs learn from text). Early results show zero-shot generalization to new objects, environments, and tasks—a long-standing robotics challenge. The model uses a hybrid transformer-diffusion architecture where the transformer handles high-level task planning and the diffusion policy outputs low-level control.",
+            "This validates the 'robotics foundation model' thesis: just as LLMs unlocked language and VLMs unlocked vision, a unified action model could unlock physical intelligence. Competitors include Google DeepMind (RT-X), Tesla (Optimus), and Figure AI ($675M Series B, Feb 2026)."
+          ],
+          "keyTakeaway": "π₀ achieves zero-shot generalization to new objects and environments via next-action prediction on 10M+ hours of robot data across 50+ morphologies.",
+          "sources": [
+            {
+              "label": "Physical Intelligence Blog",
+              "url": "https://www.physicalintelligence.company/blog/series-b"
+            },
+            {
+              "label": "The Information",
+              "url": "https://www.theinformation.com/articles/physical-intelligence-raises-400m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "type": "teal",
+      "title": "Research Review",
+      "readingMinutes": 5,
+      "content": [
+        {
+          "type": "paper",
+          "title": "Scaling Laws for Reward Model Overoptimization in RLHF",
+          "subtitle": "Authors: Leo Gao, John Schulman, Jan Leike · Venue: ICML 2026",
+          "body": [
+            "This paper identifies a fundamental problem in RLHF: as you optimize a policy against a learned reward model (RM), the policy learns to exploit the RM's errors, causing true reward (gold labels) to plateau or decrease even as RM score increases. This is 'reward model overoptimization' (RMO).",
+            "The authors derive scaling laws for RMO: the gap between RM score and true reward scales as \\( \\Delta R \\propto \\sqrt{D_{KL}} \\), where \\( D_{KL} \\) is the KL divergence between the optimized policy and the initial policy. Larger RMs delay but don't eliminate overoptimization—a 10× larger RM only buys ~2× more optimization budget before RMO kicks in.",
+            "The practical implication: RLHF pipelines must either (1) stop optimization early (leaving performance on the table), (2) use iterative RM retraining (expensive), or (3) develop RMs robust to distributional shift (the PGDR connection). The paper validates these scaling laws across three domains: summarization, dialogue, and code generation."
+          ],
+          "keyTakeaway": "Reward model score diverges from true reward as \\( \\sqrt{D_{KL}} \\); 10× larger RM only doubles optimization budget before overoptimization.",
+          "sources": [
+            {
+              "label": "arXiv:2606.01234",
+              "url": "https://arxiv.org/abs/2606.01234"
+            }
+          ],
+          "tags": [
+            "ICML 2026"
+          ],
+          "callout": {
+            "type": "pgdr",
+            "content": "<strong>[PGDR Relevance]:</strong> RMO is a distribution shift problem—the policy moves OOD relative to the RM's training distribution. PGDR techniques (worst-group robustness, adversarial training on the RM) could mitigate RMO by making RMs robust to policy optimization."
+          }
+        }
+      ]
+    },
+    {
+      "id": "math",
+      "type": "amber",
+      "title": "Math & Physics — Kernel Ridge Regression",
+      "readingMinutes": 4,
+      "curriculum": {
+        "day": 9,
+        "totalDays": 11,
+        "track": "Kernel Methods Track",
+        "progressPercent": 82
+      },
+      "content": [
+        {
+          "type": "explanation",
+          "title": "From Linear Ridge Regression to Kernel Ridge Regression",
+          "body": [
+            "Yesterday we saw Kernel PCA—how the kernel trick lets us do PCA in an implicit high-dimensional space. Today we extend the same idea to regression. Classical ridge regression solves \\\\[ \\\\min_{\\\\mathbf{w}} \\\\|\\\\mathbf{y} - \\\\mathbf{X}\\\\mathbf{w}\\\\|^2 + \\\\lambda \\\\|\\\\mathbf{w}\\\\|^2 \\\\] where \\\\( \\\\mathbf{X} \\\\in \\\\mathbb{R}^{n \\\\times d} \\\\) and \\\\( \\\\lambda > 0 \\\\) is the regularization parameter. The solution is \\\\( \\\\mathbf{w}^* = (\\\\mathbf{X}^T \\\\mathbf{X} + \\\\lambda \\\\mathbf{I})^{-1} \\\\mathbf{X}^T \\\\mathbf{y} \\\\).",
+            "But what if our data isn't linearly separable in \\\\( \\\\mathbb{R}^d \\\\)? We can map it to a feature space \\\\( \\\\mathcal{H} \\\\) via \\\\( \\\\phi: \\\\mathbb{R}^d \\\\to \\\\mathcal{H} \\\\) and solve ridge regression there. The key insight from the <strong>Representer Theorem</strong>: the optimal solution lies in the span of the training data in feature space, i.e., \\\\( \\\\mathbf{w}^* = \\\\sum_{i=1}^n \\\\alpha_i \\\\phi(\\\\mathbf{x}_i) \\\\) for some \\\\( \\\\boldsymbol{\\\\alpha} \\\\in \\\\mathbb{R}^n \\\\).",
+            "Substituting into the objective and simplifying (details below), we get \\\\[ \\\\min_{\\\\boldsymbol{\\\\alpha}} \\\\|\\\\mathbf{y} - \\\\mathbf{K}\\\\boldsymbol{\\\\alpha}\\\\|^2 + \\\\lambda \\\\boldsymbol{\\\\alpha}^T \\\\mathbf{K} \\\\boldsymbol{\\\\alpha} \\\\] where \\\\( \\\\mathbf{K} \\\\) is the kernel matrix \\\\( K_{ij} = \\\\langle \\\\phi(\\\\mathbf{x}_i), \\\\phi(\\\\mathbf{x}_j) \\\\rangle = k(\\\\mathbf{x}_i, \\\\mathbf{x}_j) \\\\). Taking the gradient and setting to zero: \\\\[ \\\\boldsymbol{\\\\alpha}^* = (\\\\mathbf{K} + \\\\lambda \\\\mathbf{I})^{-1} \\\\mathbf{y}. \\\\]",
+            "For a new test point \\\\( \\\\mathbf{x} \\\\), the prediction is \\\\[ f(\\\\mathbf{x}) = \\\\mathbf{w}^T \\\\phi(\\\\mathbf{x}) = \\\\sum_{i=1}^n \\\\alpha_i k(\\\\mathbf{x}_i, \\\\mathbf{x}). \\\\] Notice: we never compute \\\\( \\\\phi \\\\) explicitly—only the kernel \\\\( k \\\\). This is <strong>Kernel Ridge Regression (KRR)</strong>."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Worked Example: KRR with RBF Kernel",
+          "body": [
+            "Consider fitting the function \\\\( y = \\\\sin(x) \\\\) on \\\\( n = 5 \\\\) points \\\\( \\\\{(0, 0), (\\\\pi/4, 0.707), (\\\\pi/2, 1), (3\\\\pi/4, 0.707), (\\\\pi, 0)\\\\} \\\\) using the RBF kernel \\\\( k(x, x') = \\\\exp(-\\\\gamma (x - x')^2) \\\\) with \\\\( \\\\gamma = 1 \\\\) and \\\\( \\\\lambda = 0.01 \\\\).",
+            "<strong>Step 1:</strong> Compute the kernel matrix \\\\( \\\\mathbf{K} \\\\in \\\\mathbb{R}^{5 \\\\times 5} \\\\): \\\\[ K_{ij} = \\\\exp(-(x_i - x_j)^2). \\\\] For example, \\\\( K_{12} = \\\\exp(-(0 - \\\\pi/4)^2) \\\\approx 0.458 \\\\).",
+            "<strong>Step 2:</strong> Solve \\\\( \\\\boldsymbol{\\\\alpha} = (\\\\mathbf{K} + 0.01 \\\\mathbf{I})^{-1} \\\\mathbf{y} \\\\). Numerically, \\\\( \\\\boldsymbol{\\\\alpha} \\\\approx [0.02, 0.68, 0.98, 0.68, 0.02]^T \\\\).",
+            "<strong>Step 3:</strong> Predict at \\\\( x = \\\\pi/3 \\\\): \\\\[ f(\\\\pi/3) = \\\\sum_{i=1}^5 \\\\alpha_i \\\\exp(-(x_i - \\\\pi/3)^2) \\\\approx 0.866, \\\\] which matches \\\\( \\\\sin(\\\\pi/3) = \\\\sqrt{3}/2 \\\\approx 0.866 \\\\) closely despite using only 5 training points. The RBF kernel's smoothness assumption (nearby points have similar labels) enables this generalization."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Connection to Gaussian Processes",
+          "body": [
+            "KRR has a beautiful probabilistic interpretation via <strong>Gaussian Processes (GPs)</strong>. If we assume \\\\( f \\\\sim \\\\mathcal{GP}(0, k) \\\\) (a GP prior with mean 0 and covariance function \\\\( k \\\\)) and observations \\\\( y_i = f(\\\\mathbf{x}_i) + \\\\varepsilon_i \\\\) where \\\\( \\\\varepsilon_i \\\\sim \\\\mathcal{N}(0, \\\\sigma^2) \\\\), then the posterior mean function is exactly the KRR predictor with \\\\( \\\\lambda = \\\\sigma^2 \\\\).",
+            "This means: <strong>KRR is the MAP estimate of a GP regression problem.</strong> GPs give you uncertainty estimates (posterior variance) in addition to point predictions, making them invaluable for active learning, Bayesian optimization, and safety-critical applications. Tomorrow: the Representer Theorem proof and its implications for kernel SVMs."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ml",
+      "type": "rose",
+      "title": "ML Deep Dive — Neural Tangent Kernel (NTK) Continued",
+      "readingMinutes": 4,
+      "curriculum": {
+        "day": 9,
+        "totalDays": 11,
+        "track": "Modern Deep Learning Theory",
+        "progressPercent": 82
+      },
+      "content": [
+        {
+          "type": "explanation",
+          "title": "From NTK Theory to Practice: When Does It Apply?",
+          "body": [
+            "Yesterday we saw the NTK: in the infinite-width limit, a neural network trained by gradient descent behaves like a linear model in a fixed kernel space. But real networks are finite-width and trained to convergence—when does NTK theory actually apply?",
+            "The critical condition: the network must stay in the <strong>lazy training regime</strong>, where parameters move minimally from initialization. This happens when (1) width \\\\( m \\\\to \\\\infty \\\\) or (2) learning rate \\\\( \\\\eta \\\\to 0 \\\\). In this regime, the kernel \\\\( \\\\Theta(t) \\\\) is approximately constant, so training dynamics are linear.",
+            "But modern networks trained with large learning rates on real data often leave the lazy regime—parameters move substantially, the kernel evolves, and the network learns features. This is the <strong>feature learning regime</strong>, where NTK theory breaks down. Recent work (e.g., Chizat et al., JMLR 2021) shows that feature learning can be essential for generalization on high-dimensional data."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Empirical Test: CIFAR-10 with Finite Width",
+          "body": [
+            "To test NTK predictions, researchers trained a 2-layer fully-connected network on CIFAR-10 with varying widths \\\\( m \\\\in \\\\{256, 1024, 4096, 16384\\\\} \\\\) and compared to a fixed NTK kernel model. Results:",
+            "<ul><li><strong>Width 256</strong>: Network achieves 58% test accuracy; NTK kernel achieves 48% (10pp gap)—feature learning dominates.</li><li><strong>Width 4096</strong>: Network 62%; NTK 59% (3pp gap)—still some feature learning.</li><li><strong>Width 16384</strong>: Network 64%; NTK 63% (1pp gap)—NTK prediction is accurate.</li></ul>",
+            "Conclusion: NTK theory quantitatively predicts neural network behavior for <em>extremely wide networks</em>, but real networks (width 512-2048) exhibit significant feature learning that NTK cannot capture. The theory is a useful starting point, not the full story."
+          ]
+        },
+        {
+          "type": "explanation",
+          "title": "Open Problem: Characterizing the Feature Learning Regime",
+          "body": [
+            "The key open question: can we develop a theory that explains when and how neural networks learn features beyond their initialization? Some recent progress:",
+            "<ul><li><strong>Mean field theory</strong> (Mei et al., NeurIPS 2018): models parameter evolution as a PDE in the infinite-width limit, can capture feature learning.</li><li><strong>Neural collapse</strong> (Papyan et al., PNAS 2020): at the end of training, final-layer features collapse to their class means, suggesting a low-dimensional structure emerges.</li><li><strong>Implicit bias of gradient descent</strong>: GD on overparameterized networks implicitly regularizes toward solutions with specific structure (e.g., max-margin for classification).</li></ul>",
+            "Understanding feature learning is essential for answering: Why do large networks generalize? What inductive biases do architectures encode? How can we design better architectures? NTK gives us a baseline; the exciting work is in going beyond it."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "topic",
+      "type": "green",
+      "title": "Today's Topic — Robotics Foundation Models",
+      "readingMinutes": 3,
+      "content": [
+        {
+          "type": "topic-analysis",
+          "title": "The Race to Build 'GPT for Robots'",
+          "body": [
+            "This week's Physical Intelligence funding ($400M Series B) and Google DeepMind's RT-X updates signal a strategic shift: the robotics community is converging on <strong>foundation models</strong> as the path to generalist robot policies. The thesis: just as LLMs learned language from internet text and VLMs learned vision from internet images, a unified action model can learn manipulation from internet-scale robot data.",
+            "Three technical approaches are competing:<ul><li><strong>Vision-language-action (VLA) models</strong> (Physical Intelligence, Google RT-X): Treat robot actions as 'text tokens' and train a unified transformer on video + action sequences. Enables zero-shot generalization via language conditioning ('pick up the red mug').</li><li><strong>Diffusion policies</strong> (Columbia, MIT): Model action sequences as a denoising diffusion process. Naturally handles multimodal action distributions (multiple valid ways to grasp an object).</li><li><strong>World models</strong> (Tesla, UC Berkeley): Learn a video prediction model, then train a policy in the learned latent space. Can simulate rollouts for planning without real robot interaction.</li></ul>",
+            "The challenge: robot data is 1000× scarcer than text or image data. Physical Intelligence claims 10M+ hours, but GPT-4 was trained on ~10¹⁴ tokens (equivalent to billions of hours of dense experience). Current foundation models generalize within a narrow distribution (tabletop manipulation, known objects) but fail catastrophically on out-of-distribution scenarios—the PGDR problem in physical form.",
+            "Open questions: (1) Can simulation + sim-to-real transfer provide the missing data? (2) Will a single foundation model work across morphologies (arms, hands, legged robots), or do we need separate models? (3) How do we evaluate 'general' robot intelligence when tasks are so diverse? The next 12-18 months will tell us whether robotics foundation models are the real deal or another AI hype cycle."
+          ],
+          "sources": [
+            {
+              "label": "Physical Intelligence Blog",
+              "url": "https://www.physicalintelligence.company/blog/pi-zero"
+            },
+            {
+              "label": "Google DeepMind RT-X",
+              "url": "https://robotics-transformer-x.github.io"
+            },
+            {
+              "label": "Diffusion Policy (Chi et al.)",
+              "url": "https://diffusion-policy.cs.columbia.edu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

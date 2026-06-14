@@ -3,108 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nishant's Daily Digest — Index</title>
+    <meta name="description" content="Daily research digest covering AI/ML industry news, startups, research papers, math fundamentals, and deep learning theory.">
+    <title>Nishant's Daily Digest</title>
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Psychologically-optimized fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        /* Psychologically-optimized color palette */
         :root {
-            --bg: #0f1117;
-            --fg: #e2e8f0;
-            --card-bg: #181b24;
-            --border: #2d3748;
-            --muted: #94a3b8;
-            --accent: #60a5fa;
-            --heading: #f1f5f9;
+            --bg-page: #fafbfc;
+            --bg-card: #ffffff;
+            --bg-accent: #f8f9fb;
+            --text-primary: #1a202c;
+            --text-body: #2d3748;
+            --text-muted: #718096;
+            --text-subtle: #a0aec0;
+            --blue-medium: #3b82f6;
+            --blue-deep: #1e40af;
+            --blue-light: #dbeafe;
+            --green-medium: #10b981;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            --shadow-soft: rgba(0, 0, 0, 0.04);
+            --shadow-medium: rgba(0, 0, 0, 0.08);
         }
-        @media (prefers-color-scheme: light) {
+
+        @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #f8fafc;
-                --fg: #1e293b;
-                --card-bg: #ffffff;
-                --border: #e2e8f0;
-                --muted: #64748b;
-                --accent: #3b82f6;
-                --heading: #0f172a;
+                --bg-page: #0f1419;
+                --bg-card: #1a1f2e;
+                --bg-accent: #232936;
+                --text-primary: #f7fafc;
+                --text-body: #e2e8f0;
+                --text-muted: #94a3b8;
+                --text-subtle: #64748b;
+                --blue-medium: #3b82f6;
+                --blue-deep: #60a5fa;
+                --blue-light: #1e3a5f;
+                --green-medium: #10b981;
+                --border-light: #2d3748;
+                --border-medium: #4a5568;
+                --shadow-soft: rgba(0, 0, 0, 0.2);
+                --shadow-medium: rgba(0, 0, 0, 0.3);
             }
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--fg);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--bg-page);
+            color: var(--text-body);
             line-height: 1.7;
             min-height: 100vh;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 64px 32px 80px;
+        }
+
+        header {
+            margin-bottom: 56px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--border-light);
+        }
+
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 8px;
-            color: var(--heading);
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            line-height: 1.2;
         }
+
         .subtitle {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 24px;
+            font-size: 1.11rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+            line-height: 1.6;
         }
-        .subtitle a { color: var(--accent); }
-        .digest-list { list-style: none; }
-        .digest-list li { margin-bottom: 12px; }
+
+        .subtitle a {
+            color: var(--blue-medium);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .subtitle a:hover {
+            color: var(--blue-deep);
+            text-decoration: underline;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, var(--blue-light) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-left: 4px solid var(--blue-medium);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+
+        .intro-card h2 {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .intro-card p {
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .digest-list {
+            list-style: none;
+        }
+
+        .digest-list li {
+            margin-bottom: 16px;
+        }
+
         .digest-list li a {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 16px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--fg);
+            padding: 20px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            color: var(--text-body);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px var(--shadow-soft);
         }
+
         .digest-list li a:hover {
-            border-color: var(--accent);
-            background: var(--card-bg);
-            filter: brightness(1.05);
+            border-color: var(--blue-medium);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+            transform: translateY(-2px);
         }
-        .digest-list .date { font-weight: 600; }
-        .digest-list .arrow { color: var(--muted); font-size: 1.2rem; }
-        .digest-list li a:hover .arrow { color: var(--accent); }
+
+        .digest-list .date {
+            font-weight: 600;
+            font-size: 1.11rem;
+            color: var(--text-primary);
+        }
+
+        .digest-list .arrow {
+            color: var(--text-subtle);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .digest-list li a:hover .arrow {
+            color: var(--blue-medium);
+            transform: translateX(4px);
+        }
+
         .empty-state {
-            color: var(--muted);
             text-align: center;
-            padding: 48px 0;
-            font-size: 1rem;
+            padding: 64px 32px;
+            color: var(--text-muted);
+            font-size: 1.11rem;
         }
+
         footer {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 32px 32px;
             text-align: center;
-            color: var(--muted);
-            font-size: 0.85rem;
-            padding: 24px;
-            border-top: 1px solid var(--border);
-            margin-top: 48px;
+            border-top: 1px solid var(--border-light);
         }
-        footer a { color: var(--accent); }
+
+        .footer-content {
+            font-size: 0.89rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content p {
+            margin-bottom: 8px;
+        }
+
+        .footer-content a {
+            color: var(--blue-medium);
+            text-decoration: none;
+            margin: 0 8px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-content a:hover {
+            color: var(--blue-deep);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 48px 20px 64px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .digest-list li a {
+                padding: 16px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 32px 16px 48px;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .intro-card {
+                padding: 20px 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Nishant's Daily Digest</h1>
-        <p class="subtitle">Auto-generated research digest by <a href="https://hermes-agent.nousresearch.com">Hermes Agent</a></p>
+        <header>
+            <h1>Nishant's Daily Digest</h1>
+            <p class="subtitle">
+                Daily research digest covering AI/ML industry news, startups, research papers, mathematical foundations, and deep learning theory.
+                <br>Auto-generated by <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener">Hermes Agent</a>
+            </p>
+        </header>
+
+        <div class="intro-card">
+            <h2>📚 What's Inside Each Digest</h2>
+            <p>
+                Every morning you'll find curated content across 6 sections: <strong>Industry News</strong> (frontier AI developments),
+                <strong>Startup Signals</strong> (funding & innovation), <strong>Research Review</strong> (latest papers),
+                <strong>Math & Physics</strong> (foundations), <strong>ML Deep Dive</strong> (theory), and
+                <strong>Today's Topic</strong> (synthesis & analysis). Designed for learning, retention, and motivation.
+            </p>
+        </div>
+
         <ul class="digest-list" id="digestList">
-            <li><a href="2026-06-13/"><span class="date">2026-06-13</span><span class="arrow">&rarr;</span></a></li>
-            <li><a href="2026-06-12/"><span class="date">2026-06-12</span><span class="arrow">&rarr;</span></a></li>
-            <li><a href="2026-06-11/"><span class="date">2026-06-11</span><span class="arrow">&rarr;</span></a></li>
-            <li><a href="2026-06-10/"><span class="date">2026-06-10</span><span class="arrow">&rarr;</span></a></li>
+            <li><a href="2026-06-13/">
+                <span class="date">June 13, 2026</span>
+                <span class="arrow">→</span>
+            </a></li>
+            <li><a href="2026-06-12/">
+                <span class="date">June 12, 2026</span>
+                <span class="arrow">→</span>
+            </a></li>
+            <li><a href="2026-06-11/">
+                <span class="date">June 11, 2026</span>
+                <span class="arrow">→</span>
+            </a></li>
+            <li><a href="2026-06-10/">
+                <span class="date">June 10, 2026</span>
+                <span class="arrow">→</span>
+            </a></li>
         </ul>
     </div>
+
     <footer>
-        <p><a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">GitHub Repo</a></p>
+        <div class="footer-content">
+            <p>Psychologically-optimized design for learning and retention</p>
+            <p>
+                <a href="https://github.com/daddyankee/nishant-digest" target="_blank" rel="noopener">GitHub</a>
+                <a href="base/DESIGN_SYSTEM.md" target="_blank">Design System</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
