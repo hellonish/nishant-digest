@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+ <head>
+   <title>Tech tracking feeds (free)</title>
+ </head>
+ <body>
+   <outline text="General / firehose" title="General / firehose">
+     <outline type="rss" text="Hacker News (best)" title="Hacker News (best)" xmlUrl="https://hnrss.org/best" htmlUrl="https://news.ycombinator.com"/>
+     <outline type="rss" text="Ars Technica" title="Ars Technica" xmlUrl="https://feeds.arstechnica.com/arstechnica/index" htmlUrl="https://arstechnica.com"/>
+     <outline type="rss" text="The Verge" title="The Verge" xmlUrl="https://www.theverge.com/rss/index.xml" htmlUrl="https://www.theverge.com"/>
+     <outline type="rss" text="TechCrunch" title="TechCrunch" xmlUrl="https://techcrunch.com/feed/" htmlUrl="https://techcrunch.com"/>
+   </outline>
+   <outline text="Compute / hardware" title="Compute / hardware">
+     <outline type="rss" text="SemiAnalysis (free posts)" title="SemiAnalysis (free posts)" xmlUrl="https://www.semianalysis.com/feed" htmlUrl="https://www.semianalysis.com"/>
+     <outline type="rss" text="IEEE Spectrum" title="IEEE Spectrum" xmlUrl="https://spectrum.ieee.org/feeds/feed.rss" htmlUrl="https://spectrum.ieee.org"/>
+   </outline>
+   <outline text="Security" title="Security">
+     <outline type="rss" text="Krebs on Security" title="Krebs on Security" xmlUrl="https://krebsonsecurity.com/feed/" htmlUrl="https://krebsonsecurity.com"/>
+     <outline type="rss" text="The Hacker News" title="The Hacker News" xmlUrl="https://feeds.feedburner.com/TheHackersNews" htmlUrl="https://thehackernews.com"/>
+   </outline>
+   <outline text="Industry analysis / policy" title="Industry analysis / policy">
+     <outline type="rss" text="Platformer" title="Platformer" xmlUrl="https://www.platformer.news/rss/" htmlUrl="https://www.platformer.news"/>
+     <outline type="rss" text="MIT Technology Review" title="MIT Technology Review" xmlUrl="https://www.technologyreview.com/feed/" htmlUrl="https://www.technologyreview.com"/>
+   </outline>
+   <outline text="AI labs (primary sources)" title="AI labs (primary sources)">
+     <outline type="rss" text="OpenAI" title="OpenAI" xmlUrl="https://openai.com/news/rss.xml" htmlUrl="https://openai.com/news"/>
+     <outline type="rss" text="Google DeepMind" title="Google DeepMind" xmlUrl="https://deepmind.google/blog/rss.xml" htmlUrl="https://deepmind.google/blog"/>
+     <outline type="rss" text="Hugging Face Blog" title="Hugging Face Blog" xmlUrl="https://huggingface.co/blog/feed.xml" htmlUrl="https://huggingface.co/blog"/>
+     <outline type="rss" text="BAIR (Berkeley AI Research)" title="BAIR (Berkeley AI Research)" xmlUrl="https://bair.berkeley.edu/blog/feed.xml" htmlUrl="https://bair.berkeley.edu/blog"/>
+     <outline type="rss" text="Microsoft Research" title="Microsoft Research" xmlUrl="https://www.microsoft.com/en-us/research/feed/" htmlUrl="https://www.microsoft.com/en-us/research"/>
+   </outline>
+   <outline text="AI research / applied" title="AI research / applied">
+     <outline type="rss" text="arXiv CS (LG+AI+CL+RO)" title="arXiv CS (LG+AI+CL+RO)" xmlUrl="https://rss.arxiv.org/rss/cs.LG+cs.AI+cs.CL+cs.RO" htmlUrl="https://arxiv.org"/>
+     <outline type="rss" text="Interconnects (Nathan Lambert)" title="Interconnects (Nathan Lambert)" xmlUrl="https://www.interconnects.ai/feed" htmlUrl="https://www.interconnects.ai"/>
+     <outline type="rss" text="Latent Space" title="Latent Space" xmlUrl="https://www.latent.space/feed" htmlUrl="https://www.latent.space"/>
+     <outline type="rss" text="Ahead of AI (Sebastian Raschka)" title="Ahead of AI (Sebastian Raschka)" xmlUrl="https://magazine.sebastianraschka.com/feed" htmlUrl="https://magazine.sebastianraschka.com"/>
+     <outline type="rss" text="Simon Willison" title="Simon Willison" xmlUrl="https://simonwillison.net/atom/everything/" htmlUrl="https://simonwillison.net"/>
+   </outline>
+ </body>
+</opml>

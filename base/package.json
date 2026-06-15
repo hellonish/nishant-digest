@@ -1,0 +1,28 @@
+{
+  "name": "nishant-digest-tools",
+  "version": "1.0.0",
+  "description": "RSS feed processing and content extraction tools for daily digest generation",
+  "main": "process-feeds.js",
+  "scripts": {
+    "fetch": "node rss-fetcher.js --hours=24 --output=feeds.json",
+    "clean": "node content-cleaner.js feeds.json articles.json",
+    "process": "node process-feeds.js --hours=24 --max-articles=25",
+    "process-full": "node process-feeds.js --hours=24 --max-articles=25 --fetch-full",
+    "test": "node test-pipeline.js"
+  },
+  "dependencies": {
+    "xml2js": "^0.6.2",
+    "jsdom": "^24.0.0",
+    "@mozilla/readability": "^0.5.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "rss",
+    "feed",
+    "content-extraction",
+    "ai",
+    "digest"
+  ],
+  "author": "Nishant",
+  "license": "MIT"
+}

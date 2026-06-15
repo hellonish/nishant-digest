@@ -54,16 +54,38 @@ function generateCallout(callout) {
 }
 
 /**
+ * Generate video link HTML
+ */
+function generateVideoLink(video) {
+  if (!video) return '';
+
+  return `
+    <div class="video-link">
+      <div class="video-link-header">
+        <span class="video-icon">🎥</span>
+        <h4 class="video-title">${video.title}</h4>
+      </div>
+      <p class="video-meta">
+        ${video.channel ? `${video.channel}` : ''}
+        ${video.duration ? ` · ${video.duration}` : ''}
+      </p>
+      <a href="${video.url}" target="_blank" rel="noopener">Watch Video</a>
+    </div>
+  `;
+}
+
+/**
  * Generate source links HTML
  */
 function generateSources(sources) {
   if (!sources || sources.length === 0) return '';
 
-  const links = sources.map(s =>
-    `<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`
-  ).join(' · ');
+  const links = sources.map(s => {
+    const icon = s.type === 'video' ? '🎥' : s.type === 'paper' ? '📄' : '';
+    return `<a href="${s.url}" target="_blank" rel="noopener" class="source-link">${icon ? icon + ' ' : ''}${s.label}</a>`;
+  }).join(' · ');
 
-  return `<p class="source-link">${links}</p>`;
+  return `<p class="item-sources">${links}</p>`;
 }
 
 /**
@@ -93,6 +115,11 @@ function generateContentItem(item) {
   // Callout
   if (item.callout) {
     html += generateCallout(item.callout);
+  }
+
+  // Video link
+  if (item.video) {
+    html += generateVideoLink(item.video);
   }
 
   // Sources
@@ -136,11 +163,25 @@ function generateSection(section) {
 }
 
 /**
+ * Get theme stylesheet path based on data.theme
+ */
+function getThemeStylesheet(theme) {
+  const themeMap = {
+    'claude': '../base/styles.css',
+    'modern-news': '../base/styles-modern-news.css',
+    'vintage-scholar': '../base/styles-vintage-scholar.css'
+  };
+  return themeMap[theme] || themeMap['claude'];
+}
+
+/**
  * Generate complete HTML document
  */
 function generateHTML(data) {
   const dateFormatted = formatDate(data.date);
   const dateShort = data.date;
+  const theme = data.theme || 'claude';
+  const themeStylesheet = getThemeStylesheet(theme);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -150,8 +191,8 @@ function generateHTML(data) {
     <meta name="description" content="${data.meta.topicTeaser}">
     <title>Daily Digest — ${dateFormatted}</title>
 
-    <!-- Claude theme styles -->
-    <link rel="stylesheet" href="../base/styles.css">
+    <!-- Theme styles -->
+    <link rel="stylesheet" href="${themeStylesheet}">
 
     <!-- MathJax for mathematical notation -->
     <script>
@@ -168,14 +209,17 @@ function generateHTML(data) {
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
-<body>
+<body data-theme="light">
     <!-- Navigation -->
     <nav class="top-nav">
-        <div class="nav-inner">
-            <div class="nav-title">
-                <a href="../index.html" class="nav-home-link">Nishant's Daily Digest</a>
-            </div>
+        <div class="nav-container">
+            <a href="../index.html" class="nav-home-link">Nishant's Daily Digest</a>
             <div class="nav-date">${dateFormatted}</div>
+            <div class="theme-switcher">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span id="themeIcon">☀️</span>
+                </button>
+            </div>
             <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
         </div>
     </nav>
@@ -218,8 +262,9 @@ ${data.sections.map(section => generateSection(section)).join('\n')}
         </div>
     </footer>
 
-    <!-- Mobile TOC Toggle -->
+    <!-- Mobile TOC Toggle & Theme Switcher -->
     <script>
+        // Hamburger menu functionality
         const hamburger = document.getElementById('hamburgerBtn');
         const toc = document.getElementById('tocSidebar');
 
@@ -236,6 +281,27 @@ ${data.sections.map(section => generateSection(section)).join('\n')}
                         toc.classList.remove('toc-open');
                     }
                 });
+            });
+        }
+
+        // Theme switcher functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Check for saved theme preference or default to 'light' mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '☀️';
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
             });
         }
     </script>

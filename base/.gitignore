@@ -1,0 +1,18 @@
+# Cache directory
+.cache/
+
+# Output directory
+.output/
+
+# Temporary files
+feeds.json
+articles.json
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store

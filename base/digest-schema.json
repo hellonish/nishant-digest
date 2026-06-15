@@ -11,6 +11,12 @@
       "description": "ISO date format (YYYY-MM-DD)",
       "example": "2026-06-13"
     },
+    "theme": {
+      "type": "string",
+      "description": "Overall theme for the digest",
+      "enum": ["claude", "modern-news", "vintage-scholar"],
+      "default": "claude"
+    },
     "meta": {
       "type": "object",
       "required": ["wordCount", "readingMinutes", "topicTeaser"],
@@ -58,12 +64,17 @@
           "type": "string",
           "description": "HTML anchor ID for navigation",
           "pattern": "^[a-z-]+$",
-          "enum": ["industry", "startups", "research", "math", "ml", "topic"]
+          "enum": ["tech-news", "physics", "math", "random-topic", "industry", "startups", "research", "ml", "topic"]
         },
         "type": {
           "type": "string",
           "description": "Visual theme for the section",
-          "enum": ["blue", "purple", "teal", "amber", "rose", "green"]
+          "enum": ["blue", "purple", "teal", "amber", "rose", "green", "slate"]
+        },
+        "theme": {
+          "type": "string",
+          "description": "Optional theme override for this section",
+          "enum": ["claude", "modern-news", "vintage-scholar"]
         },
         "title": {
           "type": "string",
@@ -168,15 +179,44 @@
               "label": {
                 "type": "string",
                 "description": "Display text for the link",
-                "examples": ["arXiv:2606.00079", "TechCrunch", "OpenAI Blog"]
+                "examples": ["arXiv:2606.00079", "TechCrunch", "OpenAI Blog", "3Blue1Brown", "YouTube"]
               },
               "url": {
                 "type": "string",
                 "format": "uri",
                 "description": "Full URL to the source"
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of source link",
+                "enum": ["article", "video", "paper", "blog"]
               }
             }
           }
+        },
+        "video": {
+          "type": "object",
+          "description": "Optional video link for math/physics content",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "YouTube or other video URL"
+            },
+            "title": {
+              "type": "string",
+              "description": "Video title"
+            },
+            "channel": {
+              "type": "string",
+              "description": "Channel name (e.g., '3Blue1Brown', 'Numberphile')"
+            },
+            "duration": {
+              "type": "string",
+              "description": "Video duration (e.g., '15:42')"
+            }
+          },
+          "required": ["url", "title"]
         },
         "tags": {
           "type": "array",
