@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donut Labs & Donut Lab — Full Research Report | June 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --fg: #e2e8f0; --card-bg: #181b24;
+    --border: #2d3748; --muted: #94a3b8; --accent: #60a5fa;
+    --heading: #f1f5f9; --red: #ff6b6b; --amber: #f59e0b;
+    --green: #34d399; --purple: #a78bfa;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg); color: var(--fg); line-height: 1.7;
+    max-width: 900px; margin: 0 auto; padding: 48px 24px;
+  }
+  h1 { font-size: 2rem; font-weight: 800; color: var(--heading); margin-bottom: 4px; }
+  h2 { font-size: 1.4rem; font-weight: 700; color: var(--accent); margin: 32px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  h3 { font-size: 1.1rem; font-weight: 600; color: var(--heading); margin: 20px 0 8px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 32px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 0.92rem; }
+  th { background: var(--card-bg); color: var(--muted); text-align: left; padding: 10px 12px; font-weight: 600; border-bottom: 2px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tr:hover td { background: rgba(96,165,250,0.04); }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin: 20px 0; }
+  .card h3 { margin-top: 0; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 600; margin-right: 4px; }
+  .tag-red { background: rgba(255,107,107,0.15); color: var(--red); }
+  .tag-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .tag-green { background: rgba(52,211,153,0.15); color: var(--green); }
+  .tag-purple { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .tag-blue { background: rgba(96,165,250,0.15); color: var(--accent); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .verdict { background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber); padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+  .verdict strong { color: var(--amber); }
+  .sources { font-size: 0.8rem; color: var(--muted); }
+  .sources a { color: var(--accent); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>🔬 Donut Labs & Donut Lab</h1>
+<p class="subtitle">Comprehensive Research Report — June 12, 2026<br>
+<strong>CRITICAL NOTE:</strong> Two entirely separate entities share the "Donut" name. This report covers both.</p>
+
+<!-- ============================================================ -->
+<h2>Ⅰ. Donut Labs <span class="tag tag-blue">AI/Crypto</span> <span class="tag tag-green">Active</span></h2>
+<p><strong>New York, NY</strong> — Agentic AI crypto trading browser</p>
+
+<div class="two-col">
+<div class="card">
+<h3>Company Snapshot</h3>
+<table>
+<tr><td><strong>Founded</strong></td><td>2025</td></tr>
+<tr><td><strong>CEO & Founder</strong></td><td>Chris Zhu</td></tr>
+<tr><td><strong>HQ</strong></td><td>New York, NY</td></tr>
+<tr><td><strong>Website</strong></td><td>donutbrowser.ai</td></tr>
+<tr><td><strong>Product</strong></td><td>Donut Browser — agentic AI crypto browser</td></tr>
+<tr><td><strong>Total Raised</strong></td><td>$22M (pre-seed + seed, 6 months)</td></tr>
+<tr><td><strong>Waitlist</strong></td><td>160,000+ users</td></tr>
+<tr><td><strong>Status</strong></td><td>In development, public beta anticipated</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>Funding Timeline</h3>
+<table>
+<tr><th>Round</th><th>Date</th><th>Amount</th></tr>
+<tr><td>Pre-Seed</td><td>May 2025</td><td>$7M</td></tr>
+<tr><td>Seed</td><td>Nov 2025</td><td>$15M</td></tr>
+<tr><td><strong>Total</strong></td><td colspan="2"><strong>$22M in 6 months</strong></td></tr>
+</table>
+</div>
+</div>
+
+<h3>Investors (17 total)</h3>
+<table>
+<tr><th>Category</th><th>Investors</th></tr>
+<tr><td><strong>Lead VCs</strong></td><td>BITKRAFT Ventures, Hongshan (Sequoia China), Hack VC</td></tr>
+<tr><td><strong>Participating VCs</strong></td><td>Makers Fund, Sky9 Capital, Altos Ventures, Matrix Partners, MPCi, Axia8 Ventures, Inception Capital, Category Labs, Orthogonal Ventures, Vessel Ventures</td></tr>
+<tr><td><strong>Ecosystem / Strategic</strong></td><td>Solana, Sui, Monad, Jupiter, Drift, DeFi App, Manifold Trading</td></tr>
+<tr><td><strong>Corporate</strong></td><td>HSG, SonicSVM</td></tr>
+</table>
+
+<h3>Product Architecture</h3>
+<div class="card">
+<p><strong>"An AI quant inside a browser"</strong> — Chris Zhu, CEO</p>
+<ul>
+<li><strong>Multi-model AI orchestration:</strong> Uses OpenRouter to dynamically select models per task — lightweight models for swaps, advanced reasoning for complex analysis</li>
+<li><strong>Security architecture:</strong> Layered security analogous to Tesla self-driving levels. Backend authorizations prevent prompt injection. Turnkey partnership for private keys — agent <em>never sees wallet balances or has click access</em></li>
+<li><strong>Data sources:</strong> CoinGecko (pricing), Pyth (oracle), custom tools for automated execution</li>
+<li><strong>Product suite:</strong> Chrome extension, web app, mobile app, Chromium-core desktop browser</li>
+<li><strong>Key feature:</strong> Agents execute on-chain trades autonomously — even while user sleeps</li>
+</ul>
+</div>
+
+<h3>Team & Advisors</h3>
+<table>
+<tr><td><strong>CEO</strong></td><td>Chris Zhu — ex-ByteDance product, ex-VP Products at rct AI, co-founder Sonic/SonicSVM</td></tr>
+<tr><td><strong>Education</strong></td><td>NYU Stern School of Business</td></tr>
+<tr><td><strong>Team from</strong></td><td>Meta AI, TikTok AI, Tencent AI, Primodium, SonicSVM, Sahara AI</td></tr>
+<tr><td><strong>Advisor</strong></td><td>Prof. Xi Chen — NYU Stern (Statistics, ML, DeFi)</td></tr>
+<tr><td><strong>Advisor</strong></td><td>Tim Fan — ex-Meta AI researcher</td></tr>
+</table>
+
+<h3>Market Context</h3>
+<ul>
+<li>On-chain perpetuals monthly volume exceeded <strong>$1 trillion</strong> (Sep 2025)</li>
+<li>Daily DEX spot volume surpasses <strong>$20 billion</strong></li>
+<li>AI agents + blockchain is viewed as a game-changer — agents can handle smart contracts, self-custody, cross-chain bridging</li>
+<li>Competitive landscape: OpenAI Atlas, Perplexity Comet (general AI browsers, not crypto-native)</li>
+</ul>
+
+<div class="sources" style="margin-top:20px;">
+<strong>Primary Sources:</strong>
+<a href="https://www.coindesk.com/business/2025/11/03/donut-labs-raises-usd15m-seed-fnding-to-build-ai-powered-crypto-trading-browser">CoinDesk</a> ·
+<a href="https://finance.yahoo.com/news/ai-browsers-headed-crypto-donut-210040155.html">Yahoo Finance/Decrypt</a> ·
+<a href="https://thedefiant.io/news/press-releases/donut-raises-22-million-in-6-months-announces-the-worlds-first-agentic-crypto-browser-built-for-traders">The Defiant</a> ·
+<a href="https://pitchbook.com/profiles/company/847118-17">PitchBook</a> ·
+<a href="https://iq.wiki/wiki/chris-zhu">IQ.wiki</a>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<h2>Ⅱ. Donut Lab <span class="tag tag-amber">EV/Battery</span> <span class="tag tag-red">Controversial</span></h2>
+<p><strong>Helsinki, Finland / Tallinn, Estonia</strong> — Electric motor & solid-state battery technology</p>
+
+<div class="two-col">
+<div class="card">
+<h3>Company Snapshot</h3>
+<table>
+<tr><td><strong>Founded</strong></td><td>August 2024 (spin-off from Verge Motorcycles)</td></tr>
+<tr><td><strong>CEO & Founder</strong></td><td>Marko Lehtimäki</td></tr>
+<tr><td><strong>HQ</strong></td><td>Estonia (legal); Finland (operations)</td></tr>
+<tr><td><strong>Website</strong></td><td>donutlab.com</td></tr>
+<tr><td><strong>Total Raised</strong></td><td>~€40M / $45.4M (seed + earlier rounds)</td></tr>
+<tr><td><strong>Products</strong></td><td>Donut Motor, Donut Battery, DonutOS</td></tr>
+<tr><td><strong>Status</strong></td><td><span class="tag tag-red">Active criminal complaint</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>Key Investors</h3>
+<table>
+<tr><td>Aboa Advest</td></tr>
+<tr><td>First Fellow Partners</td></tr>
+<tr><td>Springvest</td></tr>
+<tr><td>Multiple undisclosed</td></tr>
+</table>
+<p style="margin-top:12px; color: var(--amber);"><strong>Note:</strong> Investor Aki Pyysing called the company "direct bullshit" and described shares being offered to small individual investors, not institutions.</p>
+</div>
+</div>
+
+<h3>Products</h3>
+<table>
+<tr><th>Product</th><th>Description</th><th>Status</th></tr>
+<tr>
+  <td><strong>Donut Motor</strong></td>
+  <td>In-wheel toroid motor — 630 kW (840 hp), 4,300 Nm (21" version). Eliminates transmission, frees space for batteries. Over 200 OEMs engaged.</td>
+  <td><span class="tag tag-green">Shipping</span></td>
+</tr>
+<tr>
+  <td><strong>Donut Battery</strong></td>
+  <td>Solid-state battery claimed: 400 Wh/kg, 100,000 cycles, 5-min charge, no lithium, –30°C to 100°C operation, GWh-scale production.</td>
+  <td><span class="tag tag-red">Disputed</span></td>
+</tr>
+<tr>
+  <td><strong>DonutOS</strong></td>
+  <td>Vehicle design & simulation platform. Announced at Slush 2025.</td>
+  <td><span class="tag tag-blue">Early</span></td>
+</tr>
+</table>
+
+<h3>⚠️ The Battery Controversy</h3>
+
+<div class="verdict">
+<strong>VERDICT:</strong> Extraordinary claims. Zero independent verification of the most disruptive metrics (energy density, cycle life). Multiple industry experts call it fraudulent. Criminal complaint filed. Approach with extreme skepticism.
+</div>
+
+<h3>Timeline of Events</h3>
+<table>
+<tr><th>Date</th><th>Event</th></tr>
+<tr><td>Jan 2026</td><td>CES 2026 unveiling — claims "world's first production-ready solid-state battery." Only mockups shown. No independent test data.</td></tr>
+<tr><td>Jan 2026</td><td>CEO claims battery "contains no lithium" and is already at "GWh/year production."</td></tr>
+<tr><td>Feb 2026</td><td>Video from CEO: VTT Technical Research Centre hired for testing. Staggered release to "control the narrative."</td></tr>
+<tr><td>Mar 2026</td><td>Q1 delivery deadline passes. No batteries shipped. Production not started.</td></tr>
+<tr><td>Apr 2026</td><td><strong>CRIMINAL COMPLAINT</strong> filed by Lauri Peltola, ex-CCO of Nordic Nano (battery partner). Claims: energy density, durability, mass-production readiness <strong>have not been achieved</strong>.</td></tr>
+<tr><td>Apr 2026</td><td>Helsingin Sanomat publishes leaked correspondence: no production equipment exists, battery still in development months after CES announcement.</td></tr>
+<tr><td>Jun 2026</td><td>CEO walks back: "We're ramping to 1 GWh of annual production this year" (was: "already at GWh scale"). Units ambiguous — says "gigawatt" not "gigawatt-hours."</td></tr>
+</table>
+
+<h3>Industry Expert Reactions</h3>
+<table>
+<tr><th>Expert</th><th>Position</th><th>Statement</th></tr>
+<tr>
+  <td>Ulderico Ulissi</td>
+  <td>Head of Off-China Operations, <strong>CATL</strong></td>
+  <td>"The announced claims are clearly fake."</td>
+</tr>
+<tr>
+  <td>Yang Hongxin</td>
+  <td>CEO, <strong>SVOLT</strong></td>
+  <td>"A battery with those technical details does not exist." Called it a <strong>scam</strong>.</td>
+</tr>
+<tr>
+  <td>Aki Pyysing</td>
+  <td>Finnish Investor</td>
+  <td>Placed Donut Lab in "direct bullshit" category. Called Lehtimäki a "snake oil trader."</td>
+</tr>
+<tr>
+  <td>Jameson Dow</td>
+  <td>Electrek (20yr EV observer)</td>
+  <td>"Miracle batteries promised for decades. EV tech improves 5-10%/year, not in giant leaps."</td>
+</tr>
+</table>
+
+<h3>Related Entity: Verge Motorcycles</h3>
+<table>
+<tr><td><strong>Founded</strong></td><td>2018, Seinäjoki, Finland</td></tr>
+<tr><td><strong>Delivery Count</strong></td><td>Under 100 motorcycles since founding</td></tr>
+<tr><td><strong>Financials (2024)</strong></td><td>Revenue €1M, Net Loss €10M</td></tr>
+<tr><td><strong>Audit Issues</strong></td><td>PwC could not complete 2024 audit — missing info on inventory, sales, R&D, property values. Subsidiary has <strong>no cash</strong>.</td></tr>
+</table>
+
+<div class="sources" style="margin-top:20px;">
+<strong>Primary Sources:</strong>
+<a href="https://en.wikipedia.org/wiki/Donut_Lab">Wikipedia</a> ·
+<a href="https://www.donutlab.com/">Donut Lab</a> ·
+<a href="https://electrek.co/2026/04/17/donut-labs-miracle-solid-state-battery-is-fraud-says-insider-donut-lab-denies/">Electrek</a> ·
+<a href="https://thepack.news/donut-lab-unveils-worlds-first-production-ready-solid-state-battery-at-ces/">The Pack</a> ·
+<a href="https://pitchbook.com/profiles/company/732078-01">PitchBook</a> ·
+<a href="https://spectrum.ieee.org/solid-state-battery-2675554640">IEEE Spectrum</a> ·
+<a href="https://idonutbelieve.com/">I Donut Believe</a> ·
+<a href="https://cleantechnica.com/2026/04/19/fraud-he-wrote-whistleblower-takes-on-donut-lab-battery-claims/">CleanTechnica</a>
+</div>
+
+<hr class="divider">
+
+<h2>Ⅲ. Comparative Summary</h2>
+<table>
+<tr><th>Dimension</th><th>Donut Labs (NY)</th><th>Donut Lab (Finland)</th></tr>
+<tr><td><strong>Founded</strong></td><td>2025</td><td>2024</td></tr>
+<tr><td><strong>CEO</strong></td><td>Chris Zhu</td><td>Marko Lehtimäki</td></tr>
+<tr><td><strong>Domain</strong></td><td>AI/Crypto browser</td><td>EV motors & batteries</td></tr>
+<tr><td><strong>Funding</strong></td><td>$22M</td><td>~€40M</td></tr>
+<tr><td><strong>Credibility</strong></td><td><span class="tag tag-green">Strong</span> — credible VCs, clear product</td><td><span class="tag tag-red">Severely damaged</span> — criminal complaint, industry rejection</td></tr>
+<tr><td><strong>Risk Level</strong></td><td>Execution risk (early stage)</td><td>Existential — possible fraud</td></tr>
+<tr><td><strong>To Watch</strong></td><td>Donut Browser beta launch, user adoption</td><td>Criminal investigation outcome, VTT test results</td></tr>
+</table>
+
+<p style="text-align:center; color: var(--muted); margin-top: 40px; font-size: 0.85rem;">
+Generated June 12, 2026 · Sources verified against primary publications · <em>Not investment advice</em>
+</p>
+
+</body>
+</html>
